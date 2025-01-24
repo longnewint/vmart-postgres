@@ -49,3 +49,8 @@ CREATE TABLE user_address (
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(address_id) REFERENCES address
 );
+
+CREATE TABLE payment_type (
+  payment_type_id integer NOT NULL PRIMARY KEY,
+  type_value varchar(64) NOT NULL
+);
