@@ -95,3 +95,12 @@ CREATE TABLE shopping_cart (
   user_id integer NOT NULL,
   FOREIGN KEY(user_id) REFERENCES vmart_user
 );
+
+CREATE TABLE shopping_cart_item (
+  cart_item_id integer NOT NULL,
+  cart_id integer NOT NULL,
+  item_id integer NOT NULL,
+  quantity integer NOT NULL,
+  FOREIGN KEY(cart_id) REFERENCES shopping_cart,
+  FOREIGN KEY(item_id) REFERENCES store_item
+);
