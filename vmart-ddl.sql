@@ -72,3 +72,10 @@ CREATE TABLE store (
   store_name varchar(64) NOT NULL,
   phone varchar(10) NOT NULL
 );
+
+CREATE TABLE product_category (
+  category_id integer NOT NULL PRIMARY KEY,
+  parent_category_id integer,
+  category_name varchar(64) NOT NULL,
+  FOREIGN KEY(parent_category_id) REFERENCES product_category
+);
