@@ -54,3 +54,15 @@ CREATE TABLE payment_type (
   payment_type_id integer NOT NULL PRIMARY KEY,
   type_value varchar(64) NOT NULL
 );
+
+CREATE TABLE payment_method (
+  payment_method_id integer NOT NULL PRIMARY KEY,
+  user_id integer NOT NULL,
+  payment_type_id integer NOT NULL,
+  provider varchar(64) NOT NULL,
+  account_number varchar(64) NOT NULL,
+  expiry_date date NOT NULL,
+  is_default boolean NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES vmart_user,
+  FOREIGN KEY(payment_type_id) REFERENCES payment_type
+);
