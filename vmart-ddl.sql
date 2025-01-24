@@ -104,3 +104,8 @@ CREATE TABLE shopping_cart_item (
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
   FOREIGN KEY(item_id) REFERENCES store_item
 );
+
+CREATE TABLE order_status (
+  order_status_id integer NOT NULL,
+  status_value varchar(64)
+);
