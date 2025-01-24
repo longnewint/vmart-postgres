@@ -66,3 +66,9 @@ CREATE TABLE payment_method (
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(payment_type_id) REFERENCES payment_type
 );
+
+CREATE TABLE store (
+  store_id integer NOT NULL PRIMARY KEY,
+  store_name varchar(64) NOT NULL,
+  phone varchar(10) NOT NULL
+);
