@@ -97,7 +97,7 @@ CREATE TABLE shopping_cart (
 );
 
 CREATE TABLE shopping_cart_item (
-  cart_item_id integer NOT NULL,
+  cart_item_id integer NOT NULL PRIMARY KEY,
   cart_id integer NOT NULL,
   item_id integer NOT NULL,
   quantity integer NOT NULL,
@@ -106,11 +106,29 @@ CREATE TABLE shopping_cart_item (
 );
 
 CREATE TABLE order_status (
-  order_status_id integer NOT NULL,
+  order_status_id integer NOT NULL PRIMARY KEY,
   status_value varchar(64)
 );
 
 CREATE TABLE shipping_method (
-  shipping_method_id integer NOT NULL,
+  shipping_method_id integer NOT NULL PRIMARY KEY,
   shipping_method_value varchar(64) NOT NULL
+);
+
+CREATE TABLE vmart_order (
+  order_id integer NOT NUll,
+  cart_id integer NOT NULL,
+  store_id integer NOT NULL,
+  shipping_method_id integer NOT NULL,
+  address_id integer,
+  payment_method_id integer NOT NULL,
+  order_date date NOT NULL,
+  order_total numeric(8,2) NOT NULL,
+  order_status_id integer,
+  FOREIGN KEY(cart_id) REFERENCES shopping_cart,
+  FOREIGN KEY(store_id) REFERENCES store,
+  FOREIGN KEY(shipping_method_id) REFERENCES shipping_method,
+  FOREIGN KEY(address_id) REFERENCES address,
+  FOREIGN KEY(payment_method_id) REFERENCES payment_method,
+  FOREIGN KEY(order_status_id) REFERENCES order_status
 );
