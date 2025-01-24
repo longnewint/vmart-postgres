@@ -109,3 +109,8 @@ CREATE TABLE order_status (
   order_status_id integer NOT NULL,
   status_value varchar(64)
 );
+
+CREATE TABLE shipping_method (
+  shipping_method_id integer NOT NULL,
+  shipping_method_value varchar(64) NOT NULL
+);
