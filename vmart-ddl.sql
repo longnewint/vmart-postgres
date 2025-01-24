@@ -89,3 +89,9 @@ CREATE TABLE product (
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
+
+CREATE TABLE shopping_cart (
+  cart_id integer NOT NULL PRIMARY KEY,
+  user_id integer NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES vmart_user
+);
