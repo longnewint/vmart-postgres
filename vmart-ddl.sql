@@ -79,3 +79,13 @@ CREATE TABLE product_category (
   category_name varchar(64) NOT NULL,
   FOREIGN KEY(parent_category_id) REFERENCES product_category
 );
+
+CREATE TABLE product (
+  product_id integer NOT NULL PRIMARY KEY,
+  category_id integer NOT NULL,
+  name varchar(64) NOT NULL,
+  description text,
+  image_url varchar(256),
+  SKU varchar(12),
+  FOREIGN KEY(category_id) REFERENCES product_category
+);
