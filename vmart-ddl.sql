@@ -29,3 +29,14 @@ CREATE TABLE vmart_user (
   last_name varchar(64),
   phone_number varchar(10)
 );
+
+CREATE TABLE address (
+  address_id integer NOT NULL PRIMARY KEY,
+  unit_number varchar(8),
+  street_number varchar(8),
+  address_line_1 varchar(64),
+  address_line_2 varchar(64),
+  postal_code varchar(6),
+  city smallint NOT NULL,
+  region smallint NOT NULL
+);
