@@ -1,4 +1,3 @@
-
 --
 -- vmart database init
 --
@@ -17,10 +16,57 @@ SET default_with_oids = false;
 --- drop tables
 ---
 
+DROP TABLE IF EXISTS vmart_user CASCADE;
+DROP TABLE IF EXISTS address CASCADE;
+DROP TABLE IF EXISTS user_address CASCADE;
+DROP TABLE IF EXISTS payment_type CASCADE;
+DROP TABLE IF EXISTS payment_method CASCADE;
+DROP TABLE IF EXISTS store CASCADE;
+DROP TABLE IF EXISTS product_category CASCADE;
+DROP TABLE IF EXISTS product CASCADE;
+DROP TABLE IF EXISTS store_item CASCADE;
+DROP TABLE IF EXISTS shopping_cart CASCADE;
+DROP TABLE IF EXISTS shopping_cart_item CASCADE;
+DROP TABLE IF EXISTS order_status CASCADE;
+DROP TABLE IF EXISTS shipping_method CASCADE;
+DROP TABLE IF EXISTS vmart_order CASCADE;
 
 ---
 --- create tables
 ---
+
+CREATE TABLE store (
+  store_id integer NOT NULL PRIMARY KEY,
+  store_name varchar(64) NOT NULL,
+  phone varchar(10) NOT NULL
+);
+
+CREATE TABLE product_category (
+  category_id integer NOT NULL PRIMARY KEY,
+  parent_category_id integer,
+  category_name varchar(64) NOT NULL,
+  FOREIGN KEY(parent_category_id) REFERENCES product_category
+);
+
+CREATE TABLE product (
+  product_id integer NOT NULL PRIMARY KEY,
+  category_id integer NOT NULL,
+  name varchar(64) NOT NULL,
+  description text,
+  image_url varchar(256),
+  SKU varchar(12),
+  FOREIGN KEY(category_id) REFERENCES product_category
+);
+
+CREATE TABLE store_item (
+  item_id integer NOT NULL PRIMARY KEY,
+  product_id integer NOT NULL,
+  store_id integer NOT NULL,
+  quantity integer NOT NULL,
+  price numeric(8,2) NOT NULL,
+  FOREIGN KEY(product_id) REFERENCES product,
+  FOREIGN KEY(store_id) REFERENCES store
+);
 
 CREATE TABLE vmart_user (
   user_id integer NOT NULL PRIMARY KEY,
@@ -28,6 +74,21 @@ CREATE TABLE vmart_user (
   first_name varchar(64),
   last_name varchar(64),
   phone_number varchar(10)
+);
+
+CREATE TABLE shopping_cart (
+  cart_id integer NOT NULL PRIMARY KEY,
+  user_id integer NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES vmart_user
+);
+
+CREATE TABLE shopping_cart_item (
+  cart_item_id integer NOT NULL PRIMARY KEY,
+  cart_id integer NOT NULL,
+  item_id integer NOT NULL,
+  quantity integer NOT NULL,
+  FOREIGN KEY(cart_id) REFERENCES shopping_cart,
+  FOREIGN KEY(item_id) REFERENCES store_item
 );
 
 CREATE TABLE address (
@@ -65,44 +126,6 @@ CREATE TABLE payment_method (
   is_default boolean NOT NULL,
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(payment_type_id) REFERENCES payment_type
-);
-
-CREATE TABLE store (
-  store_id integer NOT NULL PRIMARY KEY,
-  store_name varchar(64) NOT NULL,
-  phone varchar(10) NOT NULL
-);
-
-CREATE TABLE product_category (
-  category_id integer NOT NULL PRIMARY KEY,
-  parent_category_id integer,
-  category_name varchar(64) NOT NULL,
-  FOREIGN KEY(parent_category_id) REFERENCES product_category
-);
-
-CREATE TABLE product (
-  product_id integer NOT NULL PRIMARY KEY,
-  category_id integer NOT NULL,
-  name varchar(64) NOT NULL,
-  description text,
-  image_url varchar(256),
-  SKU varchar(12),
-  FOREIGN KEY(category_id) REFERENCES product_category
-);
-
-CREATE TABLE shopping_cart (
-  cart_id integer NOT NULL PRIMARY KEY,
-  user_id integer NOT NULL,
-  FOREIGN KEY(user_id) REFERENCES vmart_user
-);
-
-CREATE TABLE shopping_cart_item (
-  cart_item_id integer NOT NULL PRIMARY KEY,
-  cart_id integer NOT NULL,
-  item_id integer NOT NULL,
-  quantity integer NOT NULL,
-  FOREIGN KEY(cart_id) REFERENCES shopping_cart,
-  FOREIGN KEY(item_id) REFERENCES store_item
 );
 
 CREATE TABLE order_status (
