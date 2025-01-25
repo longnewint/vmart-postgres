@@ -40,6 +40,10 @@ CREATE TABLE store (
   store_name varchar(64) NOT NULL,
   phone varchar(10) NOT NULL
 );
+CREATE SEQUENCE store_seq
+  INCREMENT 1
+  START 101
+  OWNED BY store.store_id;
 
 CREATE TABLE product_category (
   category_id integer NOT NULL PRIMARY KEY,
@@ -47,6 +51,10 @@ CREATE TABLE product_category (
   category_name varchar(64) NOT NULL,
   FOREIGN KEY(parent_category_id) REFERENCES product_category
 );
+CREATE SEQUENCE product_category_seq
+  INCREMENT 1
+  START 1001
+  OWNED BY product_category.category_id;
 
 CREATE TABLE product (
   product_id integer NOT NULL PRIMARY KEY,
@@ -57,13 +65,17 @@ CREATE TABLE product (
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
+CREATE SEQUENCE product_seq
+  INCREMENT 1
+  START 10001
+  OWNED BY product.product_id;
 
 CREATE TABLE store_item (
-  item_id integer NOT NULL PRIMARY KEY,
   product_id integer NOT NULL,
   store_id integer NOT NULL,
   quantity integer NOT NULL,
   price numeric(8,2) NOT NULL,
+  PRIMARY KEY(product_id, store_id),
   FOREIGN KEY(product_id) REFERENCES product,
   FOREIGN KEY(store_id) REFERENCES store
 );
@@ -139,7 +151,7 @@ CREATE TABLE shipping_method (
 );
 
 CREATE TABLE vmart_order (
-  order_id integer NOT NUll,
+  order_id integer NOT NUll PRIMARY KEY,
   cart_id integer NOT NULL,
   store_id integer NOT NULL,
   shipping_method_id integer NOT NULL,
