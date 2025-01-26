@@ -71,14 +71,18 @@ CREATE SEQUENCE product_seq
   OWNED BY product.product_id;
 
 CREATE TABLE store_item (
+  item_id integer NOT NULL PRIMARY KEY,
   product_id integer NOT NULL,
   store_id integer NOT NULL,
   quantity integer NOT NULL,
   price numeric(8,2) NOT NULL,
-  PRIMARY KEY(product_id, store_id),
   FOREIGN KEY(product_id) REFERENCES product,
   FOREIGN KEY(store_id) REFERENCES store
 );
+CREATE SEQUENCE store_item_seq
+  INCREMENT 1
+  START 1000001
+  OWNED BY store_item.item_id;
 
 CREATE TABLE vmart_user (
   user_id integer NOT NULL PRIMARY KEY,
@@ -102,6 +106,10 @@ CREATE TABLE shopping_cart_item (
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
   FOREIGN KEY(item_id) REFERENCES store_item
 );
+CREATE SEQUENCE shopping_cart_item_seq
+  INCREMENT 1
+  START 1
+  OWNED BY shopping_cart_item.cart_item_id;
 
 CREATE TABLE address (
   address_id integer NOT NULL PRIMARY KEY,
@@ -113,11 +121,15 @@ CREATE TABLE address (
   city smallint NOT NULL,
   region smallint NOT NULL
 );
+CREATE SEQUENCE address_seq
+  INCREMENT 1
+  START 1
+  OWNED BY address.address_id;
 
 CREATE TABLE user_address (
   user_id integer NOT NULL,
   address_id integer NOT NULL,
-  is_default boolean NOT NULL,
+  is_default boolean,
   PRIMARY KEY(user_id, address_id),
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(address_id) REFERENCES address
@@ -139,10 +151,14 @@ CREATE TABLE payment_method (
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(payment_type_id) REFERENCES payment_type
 );
+CREATE SEQUENCE payment_method_seq
+  INCREMENT 1
+  START 1
+  OWNED BY payment_method.payment_method_id;
 
 CREATE TABLE order_status (
   order_status_id integer NOT NULL PRIMARY KEY,
-  status_value varchar(64)
+  status_value varchar(64) NOT NULL
 );
 
 CREATE TABLE shipping_method (
@@ -167,3 +183,7 @@ CREATE TABLE vmart_order (
   FOREIGN KEY(payment_method_id) REFERENCES payment_method,
   FOREIGN KEY(order_status_id) REFERENCES order_status
 );
+CREATE SEQUENCE vmart_order_seq
+  INCREMENT 1
+  START 1
+  OWNED BY vmart_order.order_id;
