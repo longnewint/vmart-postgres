@@ -1,6 +1,6 @@
 
 --
--- vmart database init
+-- vmart database functions and views
 --
 
 SET statement_timeout = 0;
