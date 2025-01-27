@@ -27,24 +27,21 @@ INSERT INTO product_category VALUES
 (5, NULL, 'Pantry'),
 (6, NULL, 'Plant-based Milk'),
 (7, NULL, 'Drinks'),
-(8, NULL, 'Snacks, Chips & Candy'),
+(8, NULL, 'Snacks, Chips & Candy');
 
+INSERT INTO product_category VALUES
 (9, 1, 'Vegetables'),
 (10, 1, 'Fruits'),
-
 (11, 2, 'Plant Protein'),
 (12, 2, 'Tofu'),
 (13, 2, 'Tempeh'),
-
 (14, 3, 'Bread'),
 (15, 3, 'Buns & Rolls'),
 (16, 3, 'Tortillas & Flat Breads'),
 (17, 3, 'Cake'),
-
 (18, 4, 'Frozen Vegetables'),
 (19, 4, 'Frozen Fruits'),
 (20, 4, 'Frozen Plant Protein'),
-
 (21, 5, 'Rice & Noodles'),
 (22, 5, 'Instant Ramen'),
 (23, 5, 'Dried Beans, Vegetables & Grains'),
@@ -54,22 +51,19 @@ INSERT INTO product_category VALUES
 (27, 5, 'Syrups & Spreads'),
 (28, 5, 'Oil & Vinegar'),
 (29, 5, 'Bulk Nuts and Candy'),
-
 (30, 6, 'Soy Milk'),
 (31, 6, 'Rice Milk'),
 (32, 6, 'Almond Milk'),
 (33, 6, 'Cashew Milk'),
 (34, 6, 'Oat & Other Plant Milk'),
-
 (35, 7, 'Juice'),
 (36, 7, 'Coffee'),
 (37, 7, 'Tea'),
-
 (38, 8, 'Crackers & Cookies'),
 (39, 8, 'Candy & Chocolate'),
-(40, 8, 'Chips & Snacks'),
+(40, 8, 'Chips & Snacks');
 
-
+INSERT INTO product_category VALUES
 (41, 9, 'Brocoli, Cabbage & Cauliflower'),
 (42, 9, 'Green Leefy Vegetables'),
 (43, 9, 'Carrots, Radish & Root Vegetables'),
@@ -81,8 +75,9 @@ INSERT INTO product_category VALUES
 (49, 9, 'Peas, Beans & Corn'),
 (50, 9, 'Garlic & Ginger'),
 (51, 9, 'Herbs'),
-(52, 9, 'International Vegetables'),
+(52, 9, 'International Vegetables');
 
+INSERT INTO product_category VALUES
 (53, 10, 'Oranges'),
 (54, 10, 'Bananas'),
 (55, 10, 'Peach, Plum & Nectarines'),
@@ -93,8 +88,9 @@ INSERT INTO product_category VALUES
 (60, 10, 'Apples'),
 (61, 10, 'Pears'),
 (62, 10, 'Watermelon & Melons'),
-(63, 10, 'Lemons & Lime'),
+(63, 10, 'Lemons & Lime');
 
+INSERT INTO product_category VALUES
 (64, 14, 'White & Wheat Bread'),
 (65, 14, 'Whole & Multi Grain Bread'),
 (66, 14, 'Rye, Sourdough & Pumpernickel Bread'),
@@ -108,8 +104,9 @@ INSERT INTO product_category VALUES
 (74, 17, 'Desert Cake'),
 (75, 17, 'Cheesecakes'),
 (76, 17, 'Celebration Cake'),
-(77, 17, 'Single Serve'),
+(77, 17, 'Single Serve');
 
+INSERT INTO product_category VALUES
 (78, 21, 'Rice'),
 (79, 21, 'Noodles'),
 (80, 21, 'Dry Pasta'),
@@ -131,8 +128,9 @@ INSERT INTO product_category VALUES
 (96, 28, 'Oils'),
 (97, 28, 'Vinegar'),
 (98, 29, 'Bulk Nuts'),
-(99, 29, 'Bulk Candy'),
+(99, 29, 'Bulk Candy');
 
+INSERT INTO product_category VALUES
 (101, 35, 'Orange Juices'),
 (102, 35, 'Apple Juices'),
 (103, 35, 'Cranberry Juices'),
@@ -144,18 +142,20 @@ INSERT INTO product_category VALUES
 (109, 36, 'Coffee Pods'),
 (110, 37, 'Black Tea'),
 (111, 37, 'Green Tea'),
-(112, 37, 'Specialty Tea'),
+(112, 37, 'Specialty Tea');
 
+INSERT INTO product_category VALUES
 (113, 38, 'Crackers'),
 (114, 38, 'Cookies'),
-(113, 39, 'Chocolate Bars'),
-(113, 39, 'Chocolate Candies'),
-(113, 39, 'Gummy'),
-(113, 39, 'Hard Candies'),
-(113, 39, 'Soft Candies'),
-(113, 40, 'Potato Chips'),
-(113, 40, 'Cheese Puffs'),
-(113, 40, 'Corn & Tortillas Chips');
+(115, 39, 'Chocolate Bars'),
+(116, 39, 'Chocolate Candies'),
+(117, 39, 'Gummy'),
+(118, 39, 'Hard Candies'),
+(119, 39, 'Soft Candies'),
+(120, 40, 'Potato Chips'),
+(121, 40, 'Cheese Puffs'),
+(122, 40, 'Corn & Tortillas Chips');
+
 
 INSERT INTO product VALUES
 
