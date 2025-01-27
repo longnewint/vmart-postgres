@@ -51,10 +51,6 @@ CREATE TABLE product_category (
   category_name varchar(64) NOT NULL,
   FOREIGN KEY(parent_category_id) REFERENCES product_category
 );
-CREATE SEQUENCE product_category_seq
-  INCREMENT 1
-  START 1001
-  OWNED BY product_category.category_id;
 
 CREATE TABLE product (
   product_id integer NOT NULL PRIMARY KEY,
