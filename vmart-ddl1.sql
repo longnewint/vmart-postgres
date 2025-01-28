@@ -20,15 +20,16 @@ SET default_with_oids = false;
 WITH RECURSIVE category_cte AS
 (SELECT
   category_id,
-  parent_category_id,
-  category_name
+  category_name,
+  is_leaf
 FROM product_category
+WHERE category_id = 1
 UNION ALL
 SELECT
   category.category_id,
-  category.parent_category_id,
-  category.category_name
+  category.category_name,
+  category.is_leaf
 FROM category_cte
 JOIN product_category category
 ON category_cte.category_id = category.parent_category_id)
-SELECT * FROM category_cte
+SELECT * FROM category_cte WHERE is_leaf = TRUE;
