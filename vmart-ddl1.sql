@@ -16,14 +16,19 @@ SET default_with_oids = false;
 --
 --
 --
--- CREATE VIEW category_view AS
+
+CREATE FUNCTION get_category(parent_id integer)
+  RETURNS TABLE(category_id integer, category_name varchar(64))
+  LANGUAGE SQL
+AS
+$$
 WITH RECURSIVE category_cte AS
 (SELECT
   category_id,
   category_name,
   is_leaf
 FROM product_category
-WHERE category_id = 1
+WHERE category_id = parent_id
 UNION ALL
 SELECT
   category.category_id,
@@ -32,4 +37,9 @@ SELECT
 FROM category_cte
 JOIN product_category category
 ON category_cte.category_id = category.parent_category_id)
-SELECT * FROM category_cte;
+SELECT
+  category_id,
+  category_name
+FROM category_cte
+WHERE is_leaf = TRUE;
+$$;
