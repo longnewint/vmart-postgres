@@ -32,4 +32,4 @@ SELECT
 FROM category_cte
 JOIN product_category category
 ON category_cte.category_id = category.parent_category_id)
-SELECT * FROM category_cte WHERE is_leaf = TRUE;
+SELECT * FROM category_cte;
