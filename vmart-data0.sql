@@ -158,6 +158,33 @@ INSERT INTO product_category VALUES
 
 
 INSERT INTO product VALUES
-
+(1, 41, 'Brocoli', 3.99),
+(2, 41, 'Cabbage', 4.99),
+(3, 42, 'Kale', 3.00),
+(4, 42, 'Collard Green', 4.99),
+(5, 43, 'Carrot', 5.00),
+(6, 43, 'Radishes', 2.49),
+(7, 44, 'Roma Tomatores', 9.00),
+(9, 44, 'Mixed Peppers', 9.00),
+(10, 46, 'Sweet Potatoes', 7.00),
+(11. 46, 'Yellow Potatoes', 7.00),
+(12, 46, 'Yellow Onions', 7.00),
+(13, 47, 'Buttercup Squash', 8.30),
+(14, 48, 'English Cucumber', 2.00),
+(15, 48, 'Celery Stalk', 3.50),
+(16, 50, 'Garlic', 7.00),
+(17, 51, 'Cilantro', 1.50),
+(18, 51, 'Basil', 4.00),
+(19, 51, 'Mint', 2.00),
+(20, 52, 'Napa Cabbage', 3.30),
+(21, 52, 'Bok Choy', 3.50),
+(22, 52, 'Choy Sum', 4.50),
+(23, 52, 'Gai Lan', 4.50),
+(24, 52, 'Bean Sprouts', 2.50),
+(25, 52, 'Japanese Yams', 5.40),
+(26, 52, 'Flat Cabbage', 3.30),
+(27, 52, 'Daikon Radish'),
+(28, 52, 'Purple Eggplants', 4.50),
+(29, 52, 'Eddoes', 7.00);
 
 INSERT INTO item VALUES
