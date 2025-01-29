@@ -189,20 +189,20 @@ INSERT INTO product VALUES
 (30, 52, 'Watercress', 2.00, NULL, NULL, NULL);
 
 INSERT INTO product VALUES
-(31, 53, 'Navel Oranges', 5.00),
-(32, 53, 'Mandarin Oranges', 6.00),
-(33, 54, 'Bananas', 1.70),
-(34, 57, 'Blueberries', 6.00),
-(35, 57, 'Blackberries', 8.00),
-(36, 57, 'Strawberries', 6.00),
-(37, 58, 'Pineapple', 3.00),
-(38, 58, 'Kiwi', 8.00),
-(39, 59, 'Papaya', 5.50),
-(40, 59, 'Alphonso Mango', 8.00),
-(41, 59, 'Fuyu Persimmon', 9.00),
-(42, 61, 'Bartlett Pears', 7.00),
-(42, 61, 'Ya Pears', 5.00),
-(43, 61, 'Yellow Asian Pears', 4.50);
+(31, 53, 'Navel Oranges', 5.00, NULL, NULL, NULL),
+(32, 53, 'Mandarin Oranges', 6.00, NULL, NULL, NULL),
+(33, 54, 'Bananas', 1.70, NULL, NULL, NULL),
+(34, 57, 'Blueberries', 6.00, NULL, NULL, NULL),
+(35, 57, 'Blackberries', 8.00, NULL, NULL, NULL),
+(36, 57, 'Strawberries', 6.00, NULL, NULL, NULL),
+(37, 58, 'Pineapple', 3.00, NULL, NULL, NULL),
+(38, 58, 'Kiwi', 8.00, NULL, NULL, NULL),
+(39, 59, 'Papaya', 5.50, NULL, NULL, NULL),
+(40, 59, 'Alphonso Mango', 8.00, NULL, NULL, NULL),
+(41, 59, 'Fuyu Persimmon', 9.00, NULL, NULL, NULL),
+(42, 61, 'Bartlett Pears', 7.00, NULL, NULL, NULL),
+(42, 61, 'Ya Pears', 5.00, NULL, NULL, NULL),
+(43, 61, 'Yellow Asian Pears', 4.50, NULL, NULL, NULL);
 
 
 INSERT INTO item VALUES
