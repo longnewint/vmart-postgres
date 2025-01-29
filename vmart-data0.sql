@@ -205,12 +205,12 @@ INSERT INTO product VALUES
 (43, 61, 'Yellow Asian Pears', 4.50, NULL, NULL, NULL);
 
 INSERT INTO product VALUES
-(44, 11, 'Veggie Ground Round', 5.50),
-(45, 11, 'Veggie Ground Round Large', 14.97),
-(46, 11, 'Veggie Dog', 6.00),
-(47, 12, 'Extra Firm Tofu', 2.50),
-(48, 12, 'Firm Tofu', 2.50),
-(49, 12, 'Medium Firm Tofu', 2.50);
+(44, 11, 'Veggie Ground Round', 5.50, NULL, NULL, NULL),
+(45, 11, 'Veggie Ground Round Large', 14.97, NULL, NULL, NULL),
+(46, 11, 'Veggie Dog', 6.00, NULL, NULL, NULL),
+(47, 12, 'Extra Firm Tofu', 2.50, NULL, NULL, NULL),
+(48, 12, 'Firm Tofu', 2.50, NULL, NULL, NULL),
+(49, 12, 'Medium Firm Tofu', 2.50, NULL, NULL, NULL);
 
 
 INSERT INTO item VALUES
