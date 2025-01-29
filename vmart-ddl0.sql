@@ -62,10 +62,6 @@ CREATE TABLE product (
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
-CREATE SEQUENCE product_seq
-  INCREMENT 1
-  START 10001
-  OWNED BY product.product_id;
 
 CREATE TABLE store_item (
   item_id integer NOT NULL PRIMARY KEY,
@@ -76,10 +72,6 @@ CREATE TABLE store_item (
   FOREIGN KEY(product_id) REFERENCES product,
   FOREIGN KEY(store_id) REFERENCES store
 );
-CREATE SEQUENCE store_item_seq
-  INCREMENT 1
-  START 1000001
-  OWNED BY store_item.item_id;
 
 CREATE TABLE vmart_user (
   user_id integer NOT NULL PRIMARY KEY,
