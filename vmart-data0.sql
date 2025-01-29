@@ -185,6 +185,24 @@ INSERT INTO product VALUES
 (26, 52, 'Flat Cabbage', 3.30),
 (27, 52, 'Daikon Radish'),
 (28, 52, 'Purple Eggplants', 4.50),
-(29, 52, 'Eddoes', 7.00);
+(29, 52, 'Eddoes', 7.00),
+(30, 52, 'Watercress', 2.00);
+
+INSERT INTO product VALUES
+(31, 53, 'Navel Oranges', 5.00),
+(32, 53, 'Mandarin Oranges', 6.00),
+(33, 54, 'Bananas', 1.70),
+(34, 57, 'Blueberries', 6.00),
+(35, 57, 'Blackberries', 8.00),
+(36, 57, 'Strawberries', 6.00),
+(37, 58, 'Pineapple', 3.00),
+(38, 58, 'Kiwi', 8.00),
+(39, 59, 'Papaya', 5.50),
+(40, 59, 'Alphonso Mango', 8.00),
+(41, 59, 'Fuyu Persimmon', 9.00),
+(42, 61, 'Bartlett Pears', 7.00),
+(42, 61, 'Ya Pears', 5.00),
+(43, 61, 'Yellow Asian Pears', 4.50);
+
 
 INSERT INTO item VALUES
