@@ -56,7 +56,7 @@ CREATE TABLE product_category (
 CREATE TABLE product (
   product_id integer NOT NULL PRIMARY KEY,
   category_id integer NOT NULL,
-  name varchar(64) NOT NULL,
+  product_name varchar(64) NOT NULL,
   list_price numeric(6,2) NOT NULL,
   description text,
   image_url varchar(256),

@@ -43,3 +43,20 @@ SELECT
 FROM category_cte
 WHERE is_leaf = TRUE;
 $$;
+
+CREATE FUNCTION get_product(category_id integer)
+  LANGUAGE SQL
+AS
+$$
+SELECT
+  product_id,
+  product_name,
+  list_price
+FROM product
+WHERE category_id IN (
+  SELECT
+    category_id
+  FROM
+    get_category(category_id)
+)
+$$;
