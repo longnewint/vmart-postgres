@@ -57,21 +57,27 @@ CREATE TABLE product (
   product_id integer NOT NULL PRIMARY KEY,
   category_id integer NOT NULL,
   name varchar(64) NOT NULL,
+  list_price numeric(6,2) NOT NULL,
   description text,
   image_url varchar(256),
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
 
+
 CREATE TABLE store_item (
   item_id integer NOT NULL PRIMARY KEY,
   product_id integer NOT NULL,
   store_id integer NOT NULL,
   quantity integer NOT NULL,
-  price numeric(8,2) NOT NULL,
+  discount_price numeric(6,2) NOT NULL DEFAULT 0,
   FOREIGN KEY(product_id) REFERENCES product,
   FOREIGN KEY(store_id) REFERENCES store
 );
+CREATE SEQUENCE store_item_seq
+  INCREMENT 1
+  START 1000001
+  OWNED BY store_item.item_id;
 
 CREATE TABLE vmart_user (
   user_id integer NOT NULL PRIMARY KEY,
