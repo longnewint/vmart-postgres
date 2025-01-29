@@ -167,7 +167,7 @@ INSERT INTO product VALUES
 (7, 44, 'Roma Tomatores', 9.00, NULL, NULL, NULL),
 (9, 44, 'Mixed Peppers', 9.00, NULL, NULL, NULL),
 (10, 46, 'Sweet Potatoes', 7.00, NULL, NULL, NULL),
-(11. 46, 'Yellow Potatoes', 7.00, NULL, NULL, NULL),
+(11, 46, 'Yellow Potatoes', 7.00, NULL, NULL, NULL),
 (12, 46, 'Yellow Onions', 7.00, NULL, NULL, NULL),
 (13, 47, 'Buttercup Squash', 8.30, NULL, NULL, NULL),
 (14, 48, 'English Cucumber', 2.00, NULL, NULL, NULL),
@@ -183,7 +183,7 @@ INSERT INTO product VALUES
 (24, 52, 'Bean Sprouts', 2.50, NULL, NULL, NULL),
 (25, 52, 'Japanese Yams', 5.40, NULL, NULL, NULL),
 (26, 52, 'Flat Cabbage', 3.30, NULL, NULL, NULL),
-(27, 52, 'Daikon Radish', NULL, NULL, NULL),
+(27, 52, 'Daikon Radish', 2.70, NULL, NULL, NULL),
 (28, 52, 'Purple Eggplants', 4.50, NULL, NULL, NULL),
 (29, 52, 'Eddoes', 7.00, NULL, NULL, NULL),
 (30, 52, 'Watercress', 2.00, NULL, NULL, NULL);
@@ -201,16 +201,16 @@ INSERT INTO product VALUES
 (40, 59, 'Alphonso Mango', 8.00, NULL, NULL, NULL),
 (41, 59, 'Fuyu Persimmon', 9.00, NULL, NULL, NULL),
 (42, 61, 'Bartlett Pears', 7.00, NULL, NULL, NULL),
-(42, 61, 'Ya Pears', 5.00, NULL, NULL, NULL),
-(43, 61, 'Yellow Asian Pears', 4.50, NULL, NULL, NULL);
+(43, 61, 'Ya Pears', 5.00, NULL, NULL, NULL),
+(44, 61, 'Yellow Asian Pears', 4.50, NULL, NULL, NULL);
 
 INSERT INTO product VALUES
-(44, 11, 'Veggie Ground Round', 5.50, NULL, NULL, NULL),
-(45, 11, 'Veggie Ground Round Large', 14.97, NULL, NULL, NULL),
-(46, 11, 'Veggie Dog', 6.00, NULL, NULL, NULL),
-(47, 12, 'Extra Firm Tofu', 2.50, NULL, NULL, NULL),
-(48, 12, 'Firm Tofu', 2.50, NULL, NULL, NULL),
-(49, 12, 'Medium Firm Tofu', 2.50, NULL, NULL, NULL);
+(45, 11, 'Veggie Ground Round', 5.50, NULL, NULL, NULL),
+(46, 11, 'Veggie Ground Round Large', 14.97, NULL, NULL, NULL),
+(47, 11, 'Veggie Dog', 6.00, NULL, NULL, NULL),
+(48, 12, 'Extra Firm Tofu', 2.50, NULL, NULL, NULL),
+(49, 12, 'Firm Tofu', 2.50, NULL, NULL, NULL),
+(50, 12, 'Medium Firm Tofu', 2.50, NULL, NULL, NULL);
 
 
 INSERT INTO item VALUES
