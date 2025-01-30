@@ -58,6 +58,6 @@ WHERE category_id IN (
   SELECT
     category_id
   FROM
-    get_category(category_id)
+    get_category(parent_id)
 )
 $$;
