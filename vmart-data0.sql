@@ -228,7 +228,15 @@ INSERT INTO product VALUES
 (63, 71, 'Naan Garlic', 5.00),
 (64, 71, 'Naan Original', 5.00);
 
-
+INSERT INTO product VALUES
+(65, 18, 'Whole Kernel Corn', 7.00),
+(66, 18, 'Green Peas', 7.00),
+(67, 18, 'Sliced Okra', 7.00),
+(68, 18, 'Frozen Edamame', 2.50),
+(69, 18, 'Green Peas', 7.00),
+(70, 19, 'Frozen Blueberries', 14.99),
+(71, 19, 'Frozen Strawberries', 14.99),
+(72, 19, 'Frozen Mango', 14.99);
 
 INSERT INTO product VALUES
 (73, 78, 'Jasmine Rice', 18.00),
