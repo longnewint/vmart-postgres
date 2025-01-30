@@ -212,5 +212,31 @@ INSERT INTO product VALUES
 (49, 12, 'Firm Tofu', 2.50, NULL, NULL, NULL),
 (50, 12, 'Medium Firm Tofu', 2.50, NULL, NULL, NULL);
 
+INSERT INTO product VALUES
+(51, 64, 'White Bread', 2.50),
+(52, 64, 'Whole Wheat Bread', 2.50),
+(53, 66, 'Sourdough Bread', 5.00),
+(54, 66, 'Pumpernickel Bread', 5.00),
+(55, 67, 'White Baguette', 1.89),
+(56, 68, 'White Dinner Roll', 3.99),
+(57, 68, 'Whole Wheat Dinner Roll', 3.99),
+(58, 69, 'Kaiser Rolls White', 4.29),
+(59, 69, 'Kaiser Rolls Whole Wheat', 4.29),
+(60, 69, 'Submarine Buns', 3.49),
+(61, 70, 'Hamburger Buns', 3.29),
+(62, 70, 'Hotdog Buns', 3.29),
+(63, 71, 'Naan Garlic', 5.00),
+(64, 71, 'Naan Original', 5.00);
+
+
+
+INSERT INTO product VALUES
+(73, 78, 'Jasmine Rice', 18.00),
+
+INSERT INTO product VALUES
+INSERT INTO product VALUES
+INSERT INTO product VALUES
+INSERT INTO product VALUES
+INSERT INTO product VALUES
 
 INSERT INTO item VALUES
