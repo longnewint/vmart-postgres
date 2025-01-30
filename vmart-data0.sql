@@ -240,11 +240,28 @@ INSERT INTO product VALUES
 
 INSERT INTO product VALUES
 (73, 78, 'Jasmine Rice', 18.00),
+(74, 78, 'Brown Rice', 18.00),
+(75, 79, 'Rice Vermicelli'. 1.85),
+(76, 79, 'Thin Rice Noodles', 1.49),
+(77, 79, 'Thick Rice Noodles', 1.49),
+(78, 79, 'Udon Noodles', 2.99),
+(79, 80, 'Macaroni Pasta', 4.00),
+(80, 80, 'Penne Rigate Pasta', 4.00),
+(81, 80, 'Rotini Pasta', 1.97),
+(82, 81, 'Chickpeas', 5.99),
+(83, 81, 'Red Kidney Beans', 5.99),
+(84, 81, 'Pinto Beans', 6.99),
+(85, 81, 'Navy Beans', 6.99),
+(86, 82, 'Dried Mushroom', 12.99),
+(87, 84, 'Onion Powder', 2.49),
+(88, 84, 'Garlic Powder', 2.49),
+(89, 84, 'Ground Black Pepper', 2.49),
+(90, 84, 'Chilli Powder', 4.29),
+(91, 84, 'Ground Ginger', 3.29),
+(92, 85, 'Iodized Table Salt', 1.67),
+(93, 85, 'Vegetable Food Seasoning', 6.99);
 
-INSERT INTO product VALUES
-INSERT INTO product VALUES
-INSERT INTO product VALUES
-INSERT INTO product VALUES
-INSERT INTO product VALUES
 
-INSERT INTO item VALUES
+-- INSERT INTO product VALUES
+
+-- INSERT INTO item VALUES
