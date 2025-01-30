@@ -63,7 +63,10 @@ CREATE TABLE product (
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
-
+CREATE SEQUENCE product_seq
+  INCREMENT 1
+  START 1001
+  OWNED BY product.product_id;
 
 CREATE TABLE store_item (
   item_id integer NOT NULL PRIMARY KEY,
