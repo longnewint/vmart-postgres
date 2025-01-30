@@ -241,7 +241,7 @@ INSERT INTO product VALUES
 INSERT INTO product VALUES
 (73, 78, 'Jasmine Rice', 18.00),
 (74, 78, 'Brown Rice', 18.00),
-(75, 79, 'Rice Vermicelli'. 1.85),
+(75, 79, 'Rice Vermicelli', 1.85),
 (76, 79, 'Thin Rice Noodles', 1.49),
 (77, 79, 'Thick Rice Noodles', 1.49),
 (78, 79, 'Udon Noodles', 2.99),
