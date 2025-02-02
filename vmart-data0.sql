@@ -18,6 +18,9 @@ SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 INSERT INTO vmart_user VALUES
 (12345, 'dev@mail.com');
 
+INSERT INTO shopping_cart VALUES
+(1234567, 12345);
+
 INSERT INTO store VALUES
 (nextval('store_seq'), 'VMart Ottawa', '6134131234'),
 (nextval('store_seq'), 'VMart Kanata', '6134132345');
