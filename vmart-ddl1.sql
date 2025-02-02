@@ -61,3 +61,27 @@ WHERE category_id IN (
     get_category(parent_id)
 )
 $$;
+
+CREATE FUNCTION get_item(chosen_store_id integer, chosen_category_id integer)
+  RETURNS TABLE(item_id integer, product_name varchar(64),
+    list_price numeric(6,2), discount_price numeric(6,2))
+  LANGUAGE SQL
+AS
+$$
+SELECT
+  si.item_id,
+  pr.product_name,
+  pr.list_price,
+  si.discount_price
+FROM get_product(chosen_category_id) AS pr
+JOIN (
+  SELECT
+    item_id,
+    product_id,
+    quantity,
+    discount_price
+  FROM store_item
+  WHERE store_id = chosen_store_id
+) AS si
+ON pr.product_id = si.product_id
+$$;
