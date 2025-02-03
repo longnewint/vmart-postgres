@@ -363,5 +363,7 @@ INSERT INTO store_item VALUES
 (nextval('store_item_seq'), 1091, 101, 100, 0),
 (nextval('store_item_seq'), 1092, 101, 100, 0);
 
-
-
+INSERT INTO payment_type VALUES
+(1, 'Visa'),
+(2, 'Mastercard'),
+(3, 'American Express');
