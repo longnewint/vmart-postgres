@@ -85,3 +85,19 @@ JOIN (
 ) AS si
 ON pr.product_id = si.product_id
 $$;
+
+CREATE FUNCTION add_address(customer_id integer, is_default boolean,
+  unit_number integer, street_number integer,
+  address_line_1 varchar(64), address_line_2 varchar(64),
+  postal_code varchar(6), city integer, region integer)
+  RETURNS TABLE(address_id integer, unit_number integer, street_number integer,
+  address_line_1 varchar(64), address_line_2 varchar(64),
+  postal_code varchar(6), city integer, region integer)
+  LANGUAGE SQL
+AS
+$$
+INSERT INTO address VALUES(nextval('address_seq'), unit_number, street_number,
+  address_line_1, address_line_2, postal_code, city, region);
+INSERT INTO user_address VALUES (customer_id, currval('address_seq'), is_default);
+SELECT * FROM address;
+$$;
