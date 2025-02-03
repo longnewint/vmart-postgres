@@ -116,8 +116,8 @@ CREATE TABLE address (
   address_line_1 varchar(64) NOT NULL,
   address_line_2 varchar(64),
   postal_code varchar(6),
-  city smallint NOT NULL,
-  region smallint NOT NULL
+  city integer NOT NULL,
+  region integer NOT NULL
 );
 CREATE SEQUENCE address_seq
   INCREMENT 1
