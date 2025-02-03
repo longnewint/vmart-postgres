@@ -86,6 +86,25 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
+CREATE FUNCTION get_address(customer_id integer)
+  RETURNS TABLE(address_id integer, unit_number integer, street_number integer,
+  address_line_1 varchar(64), address_line_2 varchar(64),
+  postal_code varchar(6), city integer, region integer)
+  LANGUAGE SQL
+AS
+$$
+SELECT
+  a.*
+FROM (
+  SELECT address_id
+  FROM user_address
+  WHERE user_id = customer_id
+) AS ua
+JOIN address a
+ON ua.address_id = a.address_id;
+$$;
+
+
 CREATE FUNCTION add_address(customer_id integer, is_default boolean,
   unit_number integer, street_number integer,
   address_line_1 varchar(64), address_line_2 varchar(64),
