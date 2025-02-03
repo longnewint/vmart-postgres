@@ -112,8 +112,8 @@ CREATE SEQUENCE shopping_cart_item_seq
 CREATE TABLE address (
   address_id integer NOT NULL PRIMARY KEY,
   unit_number varchar(16),
-  street_number varchar(16),
-  address_line_1 varchar(64),
+  street_number varchar(16) NOT NULL,
+  address_line_1 varchar(64) NOT NULL,
   address_line_2 varchar(64),
   postal_code varchar(6),
   city smallint NOT NULL,
