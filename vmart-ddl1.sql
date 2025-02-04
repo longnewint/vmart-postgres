@@ -63,7 +63,7 @@ WHERE category_id IN (
 )
 $$;
 
-CREATE FUNCTION get_item(chosen_store_id integer, chosen_category_id integer)
+CREATE FUNCTION get_item_by_category(chosen_store_id integer, chosen_category_id integer)
   RETURNS TABLE(item_id integer, product_name varchar(64),
     list_price numeric(6,2), discount_price numeric(6,2))
   LANGUAGE SQL
@@ -123,6 +123,7 @@ $$
 INSERT INTO address VALUES(nextval('address_seq'), unit_number, street_number,
   address_line_1, address_line_2, postal_code, city, region);
 INSERT INTO user_address VALUES (customer_id, currval('address_seq'), is_default);
+
 SELECT * FROM get_address(customer_id);
 $$;
 
@@ -156,5 +157,20 @@ AS
 $$
 INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
   payment_type_id, card_number, exp_month, exp_year, cvv, is_default);
+
 SELECT * FROM get_payment(customer_id);
+$$;
+
+CREATE FUNCTION add_to_cart(customer_cart_id integer, product_id integer, quantity integer)
+  RETURNS TABLE(product_id integer, quantity integer)
+  LANGUAGE SQL
+AS
+$$
+INSERT INTO shopping_cart_item VALUES (nextval('shopping_cart_item_seq'), customer_cart_id,
+  product_id, quantity);
+
+SELECT
+  product_id,
+  quantity
+FROM shopping_cart_item;
 $$;
