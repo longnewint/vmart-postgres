@@ -99,10 +99,10 @@ CREATE TABLE shopping_cart (
 CREATE TABLE shopping_cart_item (
   cart_item_id integer NOT NULL PRIMARY KEY,
   cart_id integer NOT NULL,
-  item_id integer NOT NULL,
+  product_id integer NOT NULL,
   quantity integer NOT NULL,
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
-  FOREIGN KEY(item_id) REFERENCES store_item
+  FOREIGN KEY(product_id) REFERENCES product
 );
 CREATE SEQUENCE shopping_cart_item_seq
   INCREMENT 1
