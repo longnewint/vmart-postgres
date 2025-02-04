@@ -133,6 +133,11 @@ CREATE TABLE user_address (
   FOREIGN KEY(address_id) REFERENCES address
 );
 
+CREATE TABLE shipping_method (
+  shipping_method_id integer NOT NULL PRIMARY KEY,
+  shipping_method_value varchar(64) NOT NULL
+);
+
 CREATE TABLE payment_type (
   payment_type_id integer NOT NULL PRIMARY KEY,
   type_value varchar(64) NOT NULL
@@ -158,11 +163,6 @@ CREATE SEQUENCE payment_method_seq
 CREATE TABLE order_status (
   order_status_id integer NOT NULL PRIMARY KEY,
   status_value varchar(64) NOT NULL
-);
-
-CREATE TABLE shipping_method (
-  shipping_method_id integer NOT NULL PRIMARY KEY,
-  shipping_method_value varchar(64) NOT NULL
 );
 
 CREATE TABLE vmart_order (

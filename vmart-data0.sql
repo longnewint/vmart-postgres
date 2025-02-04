@@ -363,6 +363,11 @@ INSERT INTO store_item VALUES
 (nextval('store_item_seq'), 1091, 101, 100, 0),
 (nextval('store_item_seq'), 1092, 101, 100, 0);
 
+INSERT INTO shipping_method VALUES
+(1, 'Pick up'),
+(2, 'Delivery'),
+(3, 'Express Delivery');
+
 INSERT INTO payment_type VALUES
 (1, 'Visa'),
 (2, 'Mastercard'),
