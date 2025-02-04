@@ -367,3 +367,11 @@ INSERT INTO payment_type VALUES
 (1, 'Visa'),
 (2, 'Mastercard'),
 (3, 'American Express');
+
+INSERT INTO order_status VALUES
+(1, 'Preparing'),
+(2, 'Waiting for pick up'),
+(3, 'Picked up'),
+(4, 'Waiting for delivery'),
+(5, 'Delivering'),
+(6, 'Delivered to location');
