@@ -176,14 +176,20 @@ FROM shopping_cart_item;
 $$;
 
 CREATE FUNCTION calculate_total(customer_cart_id integer, chosen_store_id integer)
-  RETURNS order_total integer
+  RETURNS numeric(6,2)
   LANGUAGE SQL
 AS
 $$
 SELECT
   SUM(p.list_price * sci.quantity)
-FROM shopping_cart_item sci
+FROM (
+  SELECT
+    product_id,
+    quantity
+  FROM shopping_cart_item
+  WHERE cart_id = customer_cart_id
+) AS sci
 JOIN product p ON sci.product_id = p.product_id
 $$;
 
-CREATE FUNCTION
+CREATE FUNCTION add_order(customer_cart)
