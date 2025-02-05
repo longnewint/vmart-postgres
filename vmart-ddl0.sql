@@ -172,7 +172,7 @@ CREATE TABLE vmart_order (
   shipping_method_id integer NOT NULL,
   address_id integer,
   payment_method_id integer NOT NULL,
-  order_date date NOT NULL,
+  order_date timestamp NOT NULL,
   order_total numeric(8,2) NOT NULL,
   order_status_id integer,
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
