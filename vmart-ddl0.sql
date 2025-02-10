@@ -61,6 +61,7 @@ CREATE TABLE product (
   list_price numeric(6,2) NOT NULL,
   description text,
   url varchar(256),
+  thumbnail_url varchar(256),
   SKU varchar(12),
   FOREIGN KEY(category_id) REFERENCES product_category
 );
