@@ -192,4 +192,13 @@ FROM (
 JOIN product p ON sci.product_id = p.product_id
 $$;
 
-CREATE FUNCTION add_order(customer_cart)
+CREATE FUNCTION add_order(customer_cart_id integer, store_id integer,
+  shipping_method_id integer, address_id integer, payment_method_id integer)
+  RETURNS integer
+  LANGUAGE SQL
+AS
+$$
+INSERT INTO vmart_order VALUES(nextval('vmart_order_seq'), customer_cart_id, store_id,
+shipping_method_id, address_id, payment_method_id, NOW(),
+calculate_total(customer_cart_id, store_id), 1);
+$$;
