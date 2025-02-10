@@ -63,6 +63,8 @@ CREATE TABLE product (
   url varchar(256),
   thumbnail_url varchar(256),
   SKU varchar(12),
+  ingredients text,
+  nutritions text,
   FOREIGN KEY(category_id) REFERENCES product_category
 );
 CREATE SEQUENCE product_seq
