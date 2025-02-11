@@ -89,9 +89,9 @@ CREATE SEQUENCE store_item_seq
 CREATE TABLE vmart_user (
   user_id integer NOT NULL PRIMARY KEY,
   email varchar(64) NOT NULL,
-  first_name varchar(64),
-  last_name varchar(64),
-  phone_number varchar(10)
+  first_name varchar(64) DEFAULT 'none',
+  last_name varchar(64) DEFAULT 'none',
+  phone_number varchar(10) DEFAULT 'none'
 );
 
 CREATE TABLE shopping_cart (
