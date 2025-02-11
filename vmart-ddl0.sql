@@ -56,15 +56,15 @@ CREATE TABLE product_category (
 CREATE TABLE product (
   product_id integer NOT NULL PRIMARY KEY,
   category_id integer NOT NULL,
-  brand varchar(64),
+  brand varchar(64) DEFAULT 'none',
   product_name varchar(64) NOT NULL,
   list_price numeric(6,2) NOT NULL,
-  description text,
-  url varchar(256),
-  thumbnail_url varchar(256),
-  SKU varchar(12),
-  ingredients text,
-  nutritions text,
+  description text DEFAULT 'none',
+  url varchar(256) DEFAULT 'none',
+  thumbnail_url varchar(256) DEFAULT 'none',
+  SKU varchar(12) DEFAULT 'none',
+  ingredients text DEFAULT 'none',
+  nutritions text DEFAULT 'none',
   FOREIGN KEY(category_id) REFERENCES product_category
 );
 CREATE SEQUENCE product_seq
