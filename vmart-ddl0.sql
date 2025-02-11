@@ -131,7 +131,7 @@ CREATE SEQUENCE address_seq
 CREATE TABLE user_address (
   user_id integer NOT NULL,
   address_id integer NOT NULL,
-  is_default boolean DEFAULT FALSE,
+  is_default boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY(user_id, address_id),
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(address_id) REFERENCES address
@@ -155,7 +155,7 @@ CREATE TABLE payment_method (
   exp_month varchar(2) NOT NULL,
   exp_year varchar(4) NOT NULL,
   cvv varchar(3) NOT NULL,
-  is_default boolean NOT NULL,
+  is_default boolean NOT NULL DEFAULT FALSE,
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(payment_type_id) REFERENCES payment_type
 );
