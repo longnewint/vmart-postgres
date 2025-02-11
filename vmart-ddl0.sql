@@ -131,7 +131,7 @@ CREATE SEQUENCE address_seq
 CREATE TABLE user_address (
   user_id integer NOT NULL,
   address_id integer NOT NULL,
-  is_default boolean,
+  is_default boolean DEFAULT FALSE,
   PRIMARY KEY(user_id, address_id),
   FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(address_id) REFERENCES address
