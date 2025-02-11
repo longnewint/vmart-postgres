@@ -115,11 +115,11 @@ CREATE SEQUENCE shopping_cart_item_seq
 
 CREATE TABLE address (
   address_id integer NOT NULL PRIMARY KEY,
-  unit_number varchar(16),
+  unit_number varchar(16) DEFAULT 'none',
   street_number varchar(16) NOT NULL,
   address_line_1 varchar(64) NOT NULL,
-  address_line_2 varchar(64),
-  postal_code varchar(6),
+  address_line_2 varchar(64) DEFAULT 'none',
+  postal_code varchar(6) DEFAULT 'none',
   city integer NOT NULL,
   region integer NOT NULL
 );
