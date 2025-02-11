@@ -1,5 +1,5 @@
 --
--- vmart database dump
+-- vmart database dump 0
 --
 
 SET statement_timeout = 0;
