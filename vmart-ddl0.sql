@@ -119,7 +119,7 @@ CREATE TABLE address (
   street_number varchar(16) NOT NULL,
   address_line_1 varchar(64) NOT NULL,
   address_line_2 varchar(64) DEFAULT 'none',
-  postal_code varchar(6) DEFAULT 'none',
+  postal_code varchar(6) NOT NULL,
   city integer NOT NULL,
   region integer NOT NULL
 );
@@ -174,11 +174,11 @@ CREATE TABLE vmart_order (
   cart_id integer NOT NULL,
   store_id integer NOT NULL,
   shipping_method_id integer NOT NULL,
-  address_id integer,
+  address_id integer NOT NULL,
   payment_method_id integer NOT NULL,
   order_date timestamp NOT NULL,
   order_total numeric(8,2) NOT NULL,
-  order_status_id integer,
+  order_status_id integer NOT NULL,
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
   FOREIGN KEY(store_id) REFERENCES store,
   FOREIGN KEY(shipping_method_id) REFERENCES shipping_method,
