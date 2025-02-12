@@ -268,16 +268,31 @@ INSERT INTO product VALUES
 (nextval('product_seq'), 84, NULL, 'Ground Ginger', 3.29),
 (nextval('product_seq'), 85, NULL, 'Iodized Table Salt', 1.67),
 (nextval('product_seq'), 85, NULL, 'Vegetable Food Seasoning', 6.99);
-(nextval('product_seq'), 86, NULL, 'Japanese Curry Mix Hot', 3.99);
-(nextval('product_seq'), 86, NULL, 'Japanese Curry Mix Medium', 3.99);
-(nextval('product_seq'), 86, NULL, 'Thai Green Curry Powder', 3.99);
-(nextval('product_seq'), 86, NULL, 'Thai Red Curry Powder', 3.99);
-(nextval('product_seq'), 86, NULL, 'Dark Soy Sauce', 2.99);
-(nextval('product_seq'), 86, NULL, 'Red Pepper Paste Gochujang', 6.99);
-(nextval('product_seq'), 86, NULL, 'Soy Bean Paste', 6.99);
-(nextval('product_seq'), 86, NULL, 'Korean Bulgogi Sauce', 7.99);
-(nextval('product_seq'), 86, NULL, 'Korean Galbi Sauce', 7.99);
-(nextval('product_seq'), 86, NULL, 'Horseradish Paste Wasabi Paste', 2.99);
+(nextval('product_seq'), 87, NULL, 'Japanese Curry Mix Hot', 3.99);
+(nextval('product_seq'), 87, NULL, 'Japanese Curry Mix Medium', 3.99);
+(nextval('product_seq'), 87, NULL, 'Thai Green Curry Powder', 3.99);
+(nextval('product_seq'), 87, NULL, 'Thai Red Curry Powder', 3.99);
+(nextval('product_seq'), 87, NULL, 'Dark Soy Sauce', 2.99);
+(nextval('product_seq'), 87, NULL, 'Red Pepper Paste Gochujang', 6.99);
+(nextval('product_seq'), 87, NULL, 'Soy Bean Paste', 6.99);
+(nextval('product_seq'), 87, NULL, 'Korean Bulgogi Sauce', 7.99);
+(nextval('product_seq'), 87, NULL, 'Korean Galbi Sauce', 7.99);
+(nextval('product_seq'), 88, null, 'Crushed Tomatoes', 1.99);
+(nextval('product_seq'), 88, null, 'Diced Totamoes', 1.99);
+(nextval('product_seq'), 88, null, 'Whole Totatoes', 1.99);
+(nextval('product_seq'), 90, null, 'Chickpeas', 1.79);
+(nextval('product_seq'), 90, null, 'Lentils', 1.79);
+(nextval('product_seq'), 90, null, 'Red Kidney Beans', 1.79);
+(nextval('product_seq'), 90, null, 'Beans Medley', 1.79);
+(nextval('product_seq'), 92, null, 'Black Olives', 2.99);
+(nextval('product_seq'), 92, NULL, 'Black Olives, Sliced', 2.99);
+(nextval('product_seq'), 93, null, 'Strawberry Jam', 5.79);
+(nextval('product_seq'), 93, null, 'Orange Marmalade', 5.79);
+(nextval('product_seq'), 98, null, 'Dry Roasted Almonds', 6.99);
+(nextval('product_seq'), 98, null, 'Dry Roasted Cashews', 8.99);
+(nextval('product_seq'), 98, null, 'Walnut Halves & Pieces', 6.99);
+(nextval('product_seq'), 98, null, 'Praline Peanuts', 4.99);
+(nextval('product_seq'), 98, null, 'Dark Chocolate Covered Almonds', 8.99);
 
 -- INSERT INTO product VALUES
 
