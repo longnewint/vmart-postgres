@@ -161,7 +161,8 @@ INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
 SELECT * FROM get_payment(customer_id);
 $$;
 
-CREATE FUNCTION add_to_cart(customer_cart_id integer, product_id integer, quantity integer)
+CREATE FUNCTION add_to_cart(customer_cart_id integer, store_id integer,
+  product_id integer, quantity integer)
   RETURNS TABLE(product_id integer, quantity integer)
   LANGUAGE SQL
 AS
