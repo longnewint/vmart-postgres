@@ -294,6 +294,21 @@ INSERT INTO product VALUES
 (nextval('product_seq'), 98, null, 'Praline Peanuts', 4.99);
 (nextval('product_seq'), 98, null, 'Dark Chocolate Covered Almonds', 8.99);
 
+INSERT INTO product VALUES
+(nextval('product_seq'), 30, null, 'Soy Milk, Unsweetened', 3.99);
+(nextval('product_seq'), 30, null, 'Soy Milk, Original', 3.99);
+(nextval('product_seq'), 32, null, 'Almond Milk, Unsweetened', 3.99);
+(nextval('product_seq'), 32, null, 'Almond Milk, Original', 3.99);
+(nextval('product_seq'), 33, null, 'Cashew Milk, Unsweetened', 3.99);
+(nextval('product_seq'), 33, null, 'Cashew Milk, Original', 3.99);
+(nextval('product_seq'), 34, null, 'Oat Milk, Unsweetened', 3.99);
+(nextval('product_seq'), 34, null, 'Oat Milk, Original', 3.99);
+
+INSERT INTO product VALUES
+(nextval('product_seq'), 34, null, 'Oat Milk, Original', 3.99);
+
+
+
 -- INSERT INTO product VALUES
 
 INSERT INTO store_item VALUES
