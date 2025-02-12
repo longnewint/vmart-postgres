@@ -258,7 +258,9 @@ INSERT INTO product VALUES
 (nextval('product_seq'), 81, NULL, 'Red Kidney Beans', 5.99),
 (nextval('product_seq'), 81, NULL, 'Pinto Beans', 6.99),
 (nextval('product_seq'), 81, NULL, 'Navy Beans', 6.99),
+(nextval('product_seq'), 82, NULL, 'Sushi Nori Seaweed Sheets', 3.49),
 (nextval('product_seq'), 82, NULL, 'Dried Mushroom', 12.99),
+(nextval('product_seq'), 82, NULL, 'Kombu Dried Kelp', 6.99),
 (nextval('product_seq'), 84, NULL, 'Onion Powder', 2.49),
 (nextval('product_seq'), 84, NULL, 'Garlic Powder', 2.49),
 (nextval('product_seq'), 84, NULL, 'Ground Black Pepper', 2.49),
@@ -266,6 +268,16 @@ INSERT INTO product VALUES
 (nextval('product_seq'), 84, NULL, 'Ground Ginger', 3.29),
 (nextval('product_seq'), 85, NULL, 'Iodized Table Salt', 1.67),
 (nextval('product_seq'), 85, NULL, 'Vegetable Food Seasoning', 6.99);
+(nextval('product_seq'), 86, NULL, 'Japanese Curry Mix Hot', 3.99);
+(nextval('product_seq'), 86, NULL, 'Japanese Curry Mix Medium', 3.99);
+(nextval('product_seq'), 86, NULL, 'Thai Green Curry Powder', 3.99);
+(nextval('product_seq'), 86, NULL, 'Thai Red Curry Powder', 3.99);
+(nextval('product_seq'), 86, NULL, 'Dark Soy Sauce', 2.99);
+(nextval('product_seq'), 86, NULL, 'Red Pepper Paste Gochujang', 6.99);
+(nextval('product_seq'), 86, NULL, 'Soy Bean Paste', 6.99);
+(nextval('product_seq'), 86, NULL, 'Korean Bulgogi Sauce', 7.99);
+(nextval('product_seq'), 86, NULL, 'Korean Galbi Sauce', 7.99);
+(nextval('product_seq'), 86, NULL, 'Horseradish Paste Wasabi Paste', 2.99);
 
 -- INSERT INTO product VALUES
 
