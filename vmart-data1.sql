@@ -27,3 +27,4 @@ SELECT add_to_cart();
 SELECT add_to_cart();
 SELECT add_to_cart();
 
+SELECT add_order();
