@@ -22,3 +22,8 @@ SELECT add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
 SELECT add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
 
 SELECT add_to_cart();
+SELECT add_to_cart();
+SELECT add_to_cart();
+SELECT add_to_cart();
+SELECT add_to_cart();
+
