@@ -44,7 +44,7 @@ FROM category_cte
 WHERE is_leaf = TRUE;
 $$;
 
-CREATE FUNCTION get_product_(parent_id integer)
+CREATE FUNCTION get_product_by_category(parent_id integer)
   RETURNS TABLE(product_id integer, product_name varchar(64),
     list_price numeric(6, 2))
   LANGUAGE SQL
@@ -63,18 +63,20 @@ WHERE category_id IN (
 )
 $$;
 
-CREATE FUNCTION get_item_by_category(chosen_store_id integer, chosen_category_id integer)
+CREATE FUNCTION get_product(chosen_store_id integer, chosen_category_id integer)
   RETURNS TABLE(item_id integer, product_name varchar(64),
     list_price numeric(6,2), discount_price numeric(6,2))
   LANGUAGE SQL
 AS
 $$
 SELECT
-  si.item_id,
+  pr.product_id,
+  pr.brand,
   pr.product_name,
   pr.list_price,
-  si.discount_price
-FROM get_product(chosen_category_id) AS pr
+  si.discount_price,
+  pr.thumbnail_url
+FROM get_product_by_category(chosen_category_id) AS pr
 JOIN (
   SELECT
     item_id,
