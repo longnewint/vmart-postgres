@@ -45,8 +45,7 @@ WHERE is_leaf = TRUE;
 $$;
 
 CREATE FUNCTION get_product_by_category(parent_id integer)
-  RETURNS TABLE(product_id integer, product_name varchar(64),
-    list_price numeric(6, 2))
+  RETURNS SETOF product
   LANGUAGE SQL
 AS
 $$
@@ -61,7 +60,7 @@ WHERE category_id IN (
 )
 $$;
 
-CREATE FUNCTION get_product(chosen_store_id integer, chosen_category_id integer)
+CREATE FUNCTION get_product_view(chosen_store_id integer, chosen_category_id integer)
   RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
     list_price numeric(6,2), discount_price numeric(6,2), thumbnail_url varchar(256))
   LANGUAGE SQL
@@ -86,9 +85,10 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
-CREATE FUNCTION get_product_by_id(chosen_store_id integer, product_id integer)
+CREATE FUNCTION get_product_by_id(chosen_store_id integer, chosen_product_id integer)
   RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
-    list_price numeric(6,2), discount_price numeric(6,2), thumbnail_url varchar(256))
+    list_price numeric(6,2), discount_price numeric(6,2), url varchar(256),
+    sku varchar(12), ingredients text, nutritions text)
   LANGUAGE SQL
 AS
 $$
@@ -102,7 +102,12 @@ SELECT
   pr.sku,
   pr.ingredients,
   pr.nutritions
-FROM product AS pr
+FROM (
+  SELECT
+    *
+  FROM product
+  WHERE product_id = chosen_product_id
+  ) AS pr
 JOIN (
   SELECT
     product_id,
