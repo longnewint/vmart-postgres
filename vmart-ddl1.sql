@@ -79,6 +79,7 @@ SELECT
 FROM get_product_by_category(chosen_category_id) AS pr
 JOIN (
   SELECT
+    product_id,
     quantity,
     discount_price
   FROM store_item
@@ -88,6 +89,32 @@ ON pr.product_id = si.product_id
 $$;
 
 CREATE FUNCTION get_product_by_id(chosen_store_id integer, product_id integer)
+  RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
+    list_price numeric(6,2), discount_price numeric(6,2), thumbnail_url varchar(256))
+  LANGUAGE SQL
+AS
+$$
+SELECT
+  pr.product_id,
+  pr.brand,
+  pr.product_name,
+  pr.list_price,
+  si.discount_price,
+  pr.url,
+  pr.sku,
+  pr.ingredients,
+  pr.nutritions
+FROM product AS pr
+JOIN (
+  SELECT
+    product_id,
+    quantity,
+    discount_price
+  FROM store_item
+  WHERE store_id = chosen_store_id
+) AS si
+ON pr.product_id = si.product_id
+$$;
 
 CREATE FUNCTION get_address(customer_id integer)
   RETURNS TABLE(address_id integer, unit_number varchar(16), street_number varchar(16),
