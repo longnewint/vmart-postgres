@@ -85,7 +85,7 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
-CREATE FUNCTION get_product_by_id(chosen_store_id integer, chosen_product_id integer)
+CREATE FUNCTION get_product_by_id_view(chosen_store_id integer, chosen_product_id integer)
   RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
     list_price numeric(6,2), discount_price numeric(6,2), url varchar(256),
     sku varchar(12), ingredients text, nutritions text)
