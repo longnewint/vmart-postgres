@@ -44,7 +44,7 @@ FROM category_cte
 WHERE is_leaf = TRUE;
 $$;
 
-CREATE FUNCTION get_product(parent_id integer)
+CREATE FUNCTION get_product_(parent_id integer)
   RETURNS TABLE(product_id integer, product_name varchar(64),
     list_price numeric(6, 2))
   LANGUAGE SQL
