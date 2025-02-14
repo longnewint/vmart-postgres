@@ -64,8 +64,8 @@ WHERE category_id IN (
 $$;
 
 CREATE FUNCTION get_product(chosen_store_id integer, chosen_category_id integer)
-  RETURNS TABLE(item_id integer, product_name varchar(64),
-    list_price numeric(6,2), discount_price numeric(6,2))
+  RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
+    list_price numeric(6,2), discount_price numeric(6,2), thumbnail_url varchar(256))
   LANGUAGE SQL
 AS
 $$
@@ -79,8 +79,6 @@ SELECT
 FROM get_product_by_category(chosen_category_id) AS pr
 JOIN (
   SELECT
-    item_id,
-    product_id,
     quantity,
     discount_price
   FROM store_item
@@ -88,6 +86,8 @@ JOIN (
 ) AS si
 ON pr.product_id = si.product_id
 $$;
+
+CREATE FUNCTION get_product_by_id(chosen_store_id integer, product_id integer)
 
 CREATE FUNCTION get_address(customer_id integer)
   RETURNS TABLE(address_id integer, unit_number varchar(16), street_number varchar(16),
