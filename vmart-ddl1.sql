@@ -18,7 +18,9 @@ SET default_with_oids = false;
 --
 
 CREATE FUNCTION get_category(parent_id integer)
-  RETURNS TABLE(category_id integer, category_name varchar(64))
+  RETURNS TABLE(
+    category_id integer,
+    category_name varchar(64))
   LANGUAGE SQL
 AS
 $$
@@ -60,9 +62,16 @@ WHERE category_id IN (
 )
 $$;
 
-CREATE FUNCTION get_product_view(chosen_store_id integer, chosen_category_id integer)
-  RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
-    list_price numeric(6,2), discount_price numeric(6,2), thumbnail_url varchar(256))
+CREATE FUNCTION get_product_view(
+  chosen_store_id integer,
+  chosen_category_id integer)
+  RETURNS TABLE(
+    product_id integer,
+    brand varchar(64),
+    product_name varchar(64),
+    list_price numeric(6,2),
+    discount_price numeric(6,2),
+    thumbnail_url varchar(256))
   LANGUAGE SQL
 AS
 $$
@@ -85,10 +94,19 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
-CREATE FUNCTION get_product_by_id_view(chosen_store_id integer, chosen_product_id integer)
-  RETURNS TABLE(product_id integer, brand varchar(64), product_name varchar(64),
-    list_price numeric(6,2), discount_price numeric(6,2), url varchar(256),
-    sku varchar(12), ingredients text, nutritions text)
+CREATE FUNCTION get_product_by_id_view(
+  chosen_store_id integer,
+  chosen_product_id integer)
+  RETURNS TABLE(
+    product_id integer,
+    brand varchar(64),
+    product_name varchar(64),
+    list_price numeric(6,2),
+    discount_price numeric(6,2),
+    url varchar(256),
+    sku varchar(12),
+    ingredients text,
+    nutritions text)
   LANGUAGE SQL
 AS
 $$
@@ -120,9 +138,16 @@ ON pr.product_id = si.product_id
 $$;
 
 CREATE FUNCTION get_address(customer_id integer)
-  RETURNS TABLE(address_id integer, unit_number varchar(16), street_number varchar(16),
-    address_line_1 varchar(64), address_line_2 varchar(64),
-    postal_code varchar(6), city integer, region integer, is_default boolean)
+  RETURNS TABLE(
+    address_id integer,
+    unit_number varchar(16),
+    street_number varchar(16),
+    address_line_1 varchar(64),
+    address_line_2 varchar(64),
+    postal_code varchar(6),
+    city integer,
+    region integer,
+    is_default boolean)
   LANGUAGE SQL
 AS
 $$
@@ -159,37 +184,36 @@ INSERT INTO user_address VALUES ($1, currval('address_seq'), $2);
 $$;
 
 CREATE FUNCTION get_payment(customer_id integer)
-  RETURNS TABLE(payment_method_id integer, payment_type_id integer,
-    card_number varchar(32), exp_month varchar(2), exp_year varchar(4),
-    cvv varchar(3), is_default boolean)
+  RETURNS TABLE(
+    payment_method_id integer,
+    payment_type_id integer,
+    card_number varchar(4),
+    is_default boolean)
   LANGUAGE SQL
 AS
 $$
 SELECT
   payment_method_id,
   payment_type_id,
-  card_number,
-  exp_month,
-  exp_year,
-  cvv,
+  substring(card_number, 13),
   is_default
 FROM payment_method
 WHERE user_id = customer_id;
 $$;
 
-CREATE FUNCTION add_payment(customer_id integer, payment_type_id integer,
-    card_number varchar(32), exp_month varchar(2), exp_year varchar(4),
-    cvv varchar(3), is_default boolean)
-  RETURNS TABLE(payment_method_id integer, payment_type_id integer,
-    card_number varchar(32), exp_month varchar(2), exp_year varchar(4),
-    cvv varchar(3), is_default boolean)
+CREATE PROCEDURE add_payment(
+  customer_id integer,
+  payment_type_id integer,
+  card_number varchar(32),
+  exp_month varchar(2),
+  exp_year varchar(4),
+  cvv varchar(3),
+  is_default boolean)
   LANGUAGE SQL
 AS
 $$
 INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
   payment_type_id, card_number, exp_month, exp_year, cvv, is_default);
-
-SELECT * FROM get_payment(customer_id);
 $$;
 
 CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
@@ -198,19 +222,28 @@ CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
 $$
 $$;
 
-CREATE FUNCTION add_to_cart(customer_cart_id integer, store_id integer,
-  product_id integer, quantity integer)
-  RETURNS TABLE(product_id integer, quantity integer)
+CREATE PROCEDURE add_to_cart(
+  customer_cart_id integer,
+  chosen_store_id integer,
+  added_product_id integer,
+  product_quantity integer)
   LANGUAGE SQL
 AS
 $$
-INSERT INTO shopping_cart_item VALUES (nextval('shopping_cart_item_seq'), customer_cart_id,
-  product_id, quantity);
-
-SELECT
-  product_id,
-  quantity
-FROM shopping_cart_item;
+MERGE INTO shopping_cart_item sci
+USING(
+  VALUES(customer_cart_id, added_product_id, product_quantity)
+) AS pr (cart_id, product_id, quantity)
+ON sci.cart_id = pr.cart_id
+AND sci.product_id = pr.product_id
+WHEN MATCHED AND pr.quantity != 0 THEN
+  UPDATE SET
+    quantity = pr.quantity
+WHEN MATCHED AND pr.quantity = 0 THEN
+  DELETE
+WHEN NOT MATCHED THEN
+  INSERT (cart_id, product_id, quantity)
+  VALUES (pr.cart_id, pr.product_id, pr.quantity);
 $$;
 
 CREATE FUNCTION calculate_total(customer_cart_id integer, chosen_store_id integer)
@@ -236,7 +269,7 @@ CREATE FUNCTION add_order(customer_cart_id integer, store_id integer,
   LANGUAGE SQL
 AS
 $$
-INSERT INTO vmart_order VALUES(nextval('vmart_order_seq'), customer_cart_id, store_id,
-shipping_method_id, address_id, payment_method_id, NOW(),
-calculate_total(customer_cart_id, store_id), 1);
+INSERT INTO vmart_order VALUES(nextval('vmart_order_seq'),
+customer_cart_id, store_id, shipping_method_id, address_id,
+payment_method_id, NOW(), calculate_total(customer_cart_id, store_id), 1);
 $$;
