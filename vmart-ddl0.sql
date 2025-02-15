@@ -99,7 +99,7 @@ CREATE TABLE shopping_cart (
   user_id integer NOT NULL,
   store_id integer NOT NULL,
   FOREIGN KEY(user_id) REFERENCES vmart_user,
-  FOREIGN KEY(store_id) REFERENCES store,
+  FOREIGN KEY(store_id) REFERENCES store
 );
 
 CREATE TABLE shopping_cart_item (
@@ -173,7 +173,7 @@ CREATE TABLE order_status (
 
 CREATE TABLE vmart_order (
   order_id integer NOT NUll PRIMARY KEY,
-  cart_id integer NOT NULL,
+  user_id integer NOT NULL,
   store_id integer NOT NULL,
   shipping_method_id integer NOT NULL,
   address_id integer NOT NULL,
@@ -181,7 +181,7 @@ CREATE TABLE vmart_order (
   order_date timestamp NOT NULL,
   order_total numeric(8,2) NOT NULL,
   order_status_id integer NOT NULL,
-  FOREIGN KEY(cart_id) REFERENCES shopping_cart,
+  FOREIGN KEY(user_id) REFERENCES vmart_user,
   FOREIGN KEY(store_id) REFERENCES store,
   FOREIGN KEY(shipping_method_id) REFERENCES shipping_method,
   FOREIGN KEY(address_id) REFERENCES address,
