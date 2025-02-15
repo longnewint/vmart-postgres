@@ -27,10 +27,11 @@ CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'K2C2T2', 1, 1);
 CALL add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
 CALL add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
 
-SELECT add_to_cart();
-SELECT add_to_cart();
-SELECT add_to_cart();
-SELECT add_to_cart();
-SELECT add_to_cart();
+CALL add_to_cart(1234567, 101, 1002, 1);
+CALL add_to_cart(1234567, 101, 1005, 1);
+CALL add_to_cart(1234567, 101, 1007, 1);
+CALL add_to_cart(1234567, 101, 1072, 1);
+CALL add_to_cart(1234567, 101, 1038, 1);
+CALL add_to_cart(1234567, 101, 1047, 1);
 
 SELECT add_order();
