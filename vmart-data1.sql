@@ -24,8 +24,8 @@ INSERT INTO shopping_cart VALUES
 CALL add_address(12345, TRUE, '1227', 'Woodroffe Ave', 'K2C2T2', 1, 1);
 CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'K2C2T2', 1, 1);
 
-SELECT add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
-SELECT add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
+CALL add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
+CALL add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
 
 SELECT add_to_cart();
 SELECT add_to_cart();
