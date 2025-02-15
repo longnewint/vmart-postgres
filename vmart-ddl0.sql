@@ -110,10 +110,6 @@ CREATE TABLE shopping_cart_item (
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
   FOREIGN KEY(product_id) REFERENCES product
 );
-CREATE SEQUENCE shopping_cart_item_seq
-  INCREMENT 1
-  START 1
-  OWNED BY shopping_cart_item.cart_item_id;
 
 CREATE TABLE address (
   address_id integer NOT NULL PRIMARY KEY,
