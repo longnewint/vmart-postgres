@@ -15,6 +15,12 @@ SET default_with_oids = false;
 SET default_with_oids = false;
 SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
+INSERT INTO vmart_user VALUES
+(12345, 'dev@mail.com');
+
+INSERT INTO shopping_cart VALUES
+(1234567, 12345, 101);
+
 SELECT add_address(12345, DEFAULT, '1227', 'Woodroffe Ave', DEFAULT, 'K2C2T2', 1, 1, TRUE);
 SELECT add_address(12345, DEFAULT, '1221', 'Woodroffe Ave', DEFAULT, 'K2C2T2', 1, 1, FALSE);
 
