@@ -141,22 +141,21 @@ ON ua.address_id = a.address_id;
 $$;
 
 
-CREATE FUNCTION add_address(customer_id integer, unit_number varchar(16),
-  street_number varchar(16), address_line_1 varchar(64),
-  address_line_2 varchar(64), postal_code varchar(6),
-  city integer, region integer, is_default boolean)
-  RETURNS TABLE(address_id integer, unit_number varchar(16),
-    street_number varchar(16), address_line_1 varchar(64),
-    address_line_2 varchar(64), postal_code varchar(6),
-    city integer, region integer, is_default boolean)
+CREATE PROCEDURE add_address(
+  customer_id integer,
+  is_default boolean,
+  street_number varchar(16),
+  address_line_1 varchar(64),
+  postal_code varchar(6),
+  city integer,
+  region integer,
+  unit_number varchar(16) DEFAULT 'none',
+  address_line_2 varchar(64) DEFAULT 'none')
   LANGUAGE SQL
 AS
 $$
-INSERT INTO address VALUES(nextval('address_seq'), unit_number, street_number,
-  address_line_1, address_line_2, postal_code, city, region);
-INSERT INTO user_address VALUES (customer_id, currval('address_seq'), is_default);
-
-SELECT * FROM get_address(customer_id);
+INSERT INTO address VALUES(nextval('address_seq'), $8, $3, $4, $9, $5, $6, $7);
+INSERT INTO user_address VALUES ($1, currval('address_seq'), $2);
 $$;
 
 CREATE FUNCTION get_payment(customer_id integer)
@@ -191,6 +190,12 @@ INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
   payment_type_id, card_number, exp_month, exp_year, cvv, is_default);
 
 SELECT * FROM get_payment(customer_id);
+$$;
+
+CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
+  RETURNS TABLE()
+  LANGUAGE SQL
+$$
 $$;
 
 CREATE FUNCTION add_to_cart(customer_cart_id integer, store_id integer,
