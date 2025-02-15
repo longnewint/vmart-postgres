@@ -21,8 +21,8 @@ INSERT INTO vmart_user VALUES
 INSERT INTO shopping_cart VALUES
 (1234567, 12345, 101);
 
-SELECT add_address(12345, DEFAULT, '1227', 'Woodroffe Ave', DEFAULT, 'K2C2T2', 1, 1, TRUE);
-SELECT add_address(12345, DEFAULT, '1221', 'Woodroffe Ave', DEFAULT, 'K2C2T2', 1, 1, FALSE);
+CALL add_address(12345, TRUE, '1227', 'Woodroffe Ave', 'K2C2T2', 1, 1);
+CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'K2C2T2', 1, 1);
 
 SELECT add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
 SELECT add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
