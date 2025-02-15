@@ -220,6 +220,21 @@ CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
   RETURNS TABLE()
   LANGUAGE SQL
 $$
+SELECT
+  pr.product_id,
+  pr.product_name,
+  pr.list_price,
+  pr.thumbnail_url,
+  cart.quantity
+FROM (
+  SELECT
+    product_id,
+    quantity
+  FROM shopping_cart_item
+  WHERE cart_id = customer_cart_id
+) AS cart
+JOIN product AS pr
+ON cart.product_id = pr.product_id
 $$;
 
 CREATE PROCEDURE add_to_cart(
