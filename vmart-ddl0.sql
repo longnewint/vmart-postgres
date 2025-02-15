@@ -101,10 +101,10 @@ CREATE TABLE shopping_cart (
 );
 
 CREATE TABLE shopping_cart_item (
-  cart_item_id integer NOT NULL PRIMARY KEY,
   cart_id integer NOT NULL,
   product_id integer NOT NULL,
   quantity integer NOT NULL,
+  PRIMARY KEY(cart_id, product_id),
   FOREIGN KEY(cart_id) REFERENCES shopping_cart,
   FOREIGN KEY(product_id) REFERENCES product
 );
