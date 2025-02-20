@@ -59,12 +59,13 @@ CREATE TABLE product (
   brand varchar(64) DEFAULT 'none',
   product_name varchar(64) NOT NULL,
   list_price numeric(6,2) NOT NULL,
-  description text DEFAULT 'none',
-  url varchar(256) DEFAULT 'none',
+  package_size int NOT NULL DEFAULT 0,
   thumbnail_url varchar(256) DEFAULT 'none',
-  SKU varchar(12) DEFAULT 'none',
+  url varchar(256) DEFAULT 'none',
+  description text DEFAULT 'none',
   ingredients text DEFAULT 'none',
   nutritions text DEFAULT 'none',
+  SKU varchar(12) DEFAULT 'none',
   FOREIGN KEY(category_id) REFERENCES product_category
 );
 CREATE SEQUENCE product_seq
