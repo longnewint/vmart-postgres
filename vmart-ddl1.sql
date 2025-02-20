@@ -17,6 +17,9 @@ SET default_with_oids = false;
 --
 --
 
+
+-- Category function
+
 CREATE FUNCTION get_category(parent_id integer)
   RETURNS TABLE(
     category_id integer,
@@ -46,6 +49,8 @@ FROM category_cte
 WHERE is_leaf = TRUE;
 $$;
 
+-- Product function
+
 CREATE FUNCTION get_product_by_category(parent_id integer)
   RETURNS SETOF product
   LANGUAGE SQL
@@ -61,6 +66,8 @@ WHERE category_id IN (
     get_category(parent_id)
 )
 $$;
+
+--
 
 CREATE FUNCTION get_product_view(
   chosen_store_id integer,
@@ -93,6 +100,9 @@ JOIN (
 ) AS si
 ON pr.product_id = si.product_id
 $$;
+
+
+--
 
 CREATE FUNCTION get_product_by_id_view(
   chosen_store_id integer,
@@ -137,6 +147,8 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
+-- Address function
+
 CREATE FUNCTION get_address(customer_id integer)
   RETURNS TABLE(
     address_id integer,
@@ -165,6 +177,7 @@ JOIN address a
 ON ua.address_id = a.address_id;
 $$;
 
+--
 
 CREATE PROCEDURE add_address(
   customer_id integer,
@@ -182,6 +195,8 @@ $$
 INSERT INTO address VALUES(nextval('address_seq'), $8, $3, $4, $9, $5, $6, $7);
 INSERT INTO user_address VALUES ($1, currval('address_seq'), $2);
 $$;
+
+-- Payment function
 
 CREATE FUNCTION get_payment(customer_id integer)
   RETURNS TABLE(
@@ -201,6 +216,8 @@ FROM payment_method
 WHERE user_id = customer_id;
 $$;
 
+--
+
 CREATE PROCEDURE add_payment(
   customer_id integer,
   payment_type_id integer,
@@ -216,9 +233,19 @@ INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
   payment_type_id, card_number, exp_month, exp_year, cvv, is_default);
 $$;
 
+
+-- Cart function
+
 CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
-  RETURNS TABLE()
+  RETURNS TABLE(
+    product_id integer,
+    product_name varchar(64),
+    list_price numeric(6,2),
+    thumbnail_url text,
+    quantity integer
+  )
   LANGUAGE SQL
+AS
 $$
 SELECT
   pr.product_id,
@@ -234,8 +261,10 @@ FROM (
   WHERE cart_id = customer_cart_id
 ) AS cart
 JOIN product AS pr
-ON cart.product_id = pr.product_id
+ON cart.product_id = pr.product_id;
 $$;
+
+--
 
 CREATE PROCEDURE add_to_cart(
   customer_cart_id integer,
@@ -261,6 +290,9 @@ WHEN NOT MATCHED THEN
   VALUES (pr.cart_id, pr.product_id, pr.quantity);
 $$;
 
+
+-- Order function
+
 CREATE FUNCTION calculate_total(customer_cart_id integer, chosen_store_id integer)
   RETURNS numeric(6,2)
   LANGUAGE SQL
@@ -278,9 +310,10 @@ FROM (
 JOIN product p ON sci.product_id = p.product_id
 $$;
 
-CREATE FUNCTION add_order(customer_cart_id integer, store_id integer,
+--
+
+CREATE PROCEDURE (customer_cart_id integer, store_id integer,
   shipping_method_id integer, address_id integer, payment_method_id integer)
-  RETURNS integer
   LANGUAGE SQL
 AS
 $$
