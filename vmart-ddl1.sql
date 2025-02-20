@@ -268,7 +268,6 @@ $$;
 
 CREATE PROCEDURE add_to_cart(
   customer_cart_id integer,
-  chosen_store_id integer,
   added_product_id integer,
   product_quantity integer)
   LANGUAGE SQL
