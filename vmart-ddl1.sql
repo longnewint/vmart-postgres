@@ -166,6 +166,22 @@ FROM vmart_user
 WHERE user_id = customer_id;
 $$;
 
+CREATE PROCEDURE update_profile(
+  customer_id integer,
+  c_name varchar(64),
+  c_number varchar(10))
+LANGUAGE SQL
+AS
+$$
+UPDATE vmart_user
+SET
+  name = c_name,
+  phone_number = c_number
+WHERE user_id = customer_id;
+$$;
+
+
+
 -- Address function
 
 CREATE FUNCTION get_address(customer_id integer)
