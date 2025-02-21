@@ -22,7 +22,6 @@ INSERT INTO vmart_user VALUES
 INSERT INTO shopping_cart VALUES
 (1234567, 12345, 101);
 
-
 CALL add_address(11111, TRUE, 'pick up', 'at the store', 'K2C2T2', 1, 1);
 CALL add_address(12345, TRUE, '1227', 'Woodroffe Ave', 'K2C2T2', 1, 1);
 CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'K2C2T2', 1, 1);
