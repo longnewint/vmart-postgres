@@ -15,6 +15,10 @@ SET default_with_oids = false;
 SET default_with_oids = false;
 SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
+--
+--
+--
+
 INSERT INTO store VALUES
 (nextval('store_seq'), 'VMart Ottawa', '6134131234'),
 (nextval('store_seq'), 'VMart Kanata', '6134132345');

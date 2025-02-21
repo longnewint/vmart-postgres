@@ -152,7 +152,7 @@ $$;
 CREATE FUNCTION get_profile(customer_id integer)
   RETURNS TABLE(
     email varchar(64),
-    name varchar(64)),
+    name varchar(64),
     phone_number varchar(10)
   )
 LANGUAGE SQL
