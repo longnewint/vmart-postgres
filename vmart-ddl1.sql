@@ -180,8 +180,6 @@ SET
 WHERE user_id = customer_id;
 $$;
 
-
-
 -- Address function
 
 CREATE FUNCTION get_address(customer_id integer)
