@@ -147,6 +147,25 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
+-- Profile function
+
+CREATE FUNCTION get_profile(customer_id integer)
+  RETURNS TABLE(
+    email varchar(64),
+    name varchar(64)),
+    phone_number varchar(10)
+  )
+LANGUAGE SQL
+AS
+$$
+SELECT
+  email,
+  name,
+  phone_number
+FROM vmart_user
+WHERE user_id = customer_id;
+$$;
+
 -- Address function
 
 CREATE FUNCTION get_address(customer_id integer)
