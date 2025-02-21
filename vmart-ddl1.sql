@@ -262,14 +262,23 @@ CREATE PROCEDURE add_payment(
   LANGUAGE SQL
 AS
 $$
-INSERT INTO payment_method VALUES (nextval('payment_method_seq'), customer_id,
-  payment_type_id, card_number, exp_month, exp_year, cvv, is_default);
+INSERT INTO payment_method VALUES (
+  nextval('payment_method_seq'),
+  customer_id,
+  payment_type_id,
+  card_number,
+  exp_month,
+  exp_year,
+  cvv,
+  is_default);
 $$;
 
 
 -- Cart function
 
-CREATE FUNCTION get_cart(customer_cart_id integer, store_id integer)
+CREATE FUNCTION get_cart(
+  customer_cart_id integer,
+  store_id integer)
   RETURNS TABLE(
     product_id integer,
     product_name varchar(64),
@@ -308,7 +317,10 @@ AS
 $$
 MERGE INTO shopping_cart_item sci
 USING(
-  VALUES(customer_cart_id, added_product_id, product_quantity)
+  VALUES(
+    customer_cart_id,
+    added_product_id,
+    product_quantity)
 ) AS pr (cart_id, product_id, quantity)
 ON sci.cart_id = pr.cart_id
 AND sci.product_id = pr.product_id
@@ -325,7 +337,9 @@ $$;
 
 -- Order function
 
-CREATE FUNCTION calculate_total(customer_cart_id integer, chosen_store_id integer)
+CREATE FUNCTION calculate_total(
+  customer_cart_id integer,
+  chosen_store_id integer)
   RETURNS numeric(6,2)
   LANGUAGE SQL
 AS
@@ -344,8 +358,12 @@ $$;
 
 --
 
-CREATE PROCEDURE (customer_cart_id integer, store_id integer,
-  shipping_method_id integer, address_id integer, payment_method_id integer)
+CREATE PROCEDURE (
+  customer_cart_id integer,
+  store_id integer,
+  shipping_method_id integer,
+  address_id integer,
+  payment_method_id integer)
   LANGUAGE SQL
 AS
 $$
