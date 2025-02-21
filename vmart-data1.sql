@@ -42,4 +42,4 @@ CALL add_to_cart(1234567, 1072, 1);
 CALL add_to_cart(1234567, 1038, 1);
 CALL add_to_cart(1234567, 1047, 1);
 
-SELECT add_order();
+CALL create_order(12345, 101, 1234567, 2, 2, 1);
