@@ -358,16 +358,24 @@ $$;
 
 --
 
-CREATE PROCEDURE (
+CREATE PROCEDURE create_order(
+  user_id integer,
   customer_cart_id integer,
-  store_id integer,
   shipping_method_id integer,
   address_id integer,
   payment_method_id integer)
   LANGUAGE SQL
 AS
 $$
-INSERT INTO vmart_order VALUES(nextval('vmart_order_seq'),
-customer_cart_id, store_id, shipping_method_id, address_id,
-payment_method_id, NOW(), calculate_total(customer_cart_id, store_id), 1);
+INSERT INTO vmart_order VALUES(
+  nextval('vmart_order_seq'),
+  user_id,
+  (SELECT store_id FROM shopping_cart),
+  customer_cart_id, 
+  shipping_method_id,
+  address_id,
+  payment_method_id,
+  NOW(),
+  calculate_total(customer_cart_id, store_id),
+  1);
 $$;
