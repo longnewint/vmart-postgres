@@ -190,8 +190,8 @@ CREATE FUNCTION get_address(customer_id integer)
     address_line_1 varchar(64),
     address_line_2 varchar(64),
     postal_code varchar(6),
-    city integer,
-    region integer,
+    city varchar(32),
+    province varchar(32),
     is_default boolean)
   LANGUAGE SQL
 AS
