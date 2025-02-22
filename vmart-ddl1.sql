@@ -220,8 +220,8 @@ CREATE PROCEDURE add_address(
   street_number varchar(16),
   address_line_1 varchar(64),
   postal_code varchar(6),
-  city integer,
-  region integer,
+  city varchar(32),
+  region varchar(32),
   unit_number varchar(16) DEFAULT 'none',
   address_line_2 varchar(64) DEFAULT 'none')
   LANGUAGE SQL
