@@ -20,11 +20,13 @@ SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 --
 
 INSERT INTO vmart_user VALUES
-(11111, 'default@vmart.com')
-(12345, 'dev@mail.com');
+(11111, 'default@vmart.com'),
+(12345, 'dev@mail.com'),
+(12321, 'other_dev@mail.com');
 
 INSERT INTO shopping_cart VALUES
 (1234567, 12345, 101);
+(1234321, 12321, 101);
 
 CALL update_profile(12345, 'Long Nguyen', '6134133792');
 
