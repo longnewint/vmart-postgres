@@ -220,9 +220,9 @@ CREATE PROCEDURE add_address(
   is_default boolean,
   street_number varchar(16),
   address_line_1 varchar(64),
-  postal_code varchar(6),
   city varchar(32),
   region varchar(32),
+  postal_code varchar(6),
   unit_number varchar(16) DEFAULT 'none',
   address_line_2 varchar(64) DEFAULT 'none')
   LANGUAGE SQL
@@ -371,9 +371,9 @@ RETURNS TABLE(
   street_number varchar(16),
   address_line_1 varchar(64),
   address_line_2 varchar(64),
-  postal_code varchar(6),
   city varchar(32),
-  province varchar(32)
+  province varchar(32),
+  postal_code varchar(6)
 )
 LANGUAGE SQL
 AS
