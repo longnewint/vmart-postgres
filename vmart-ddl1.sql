@@ -394,6 +394,31 @@ JOIN store AS s ON o.store_id = s.store_id
 JOIN address AS a ON o.address_id = a.address_id;
 $$;
 
+--
+
+CREATE FUNCTION get_order_by_id(order_id_p integer)
+RETURNS TABLE(
+  order_id integer,
+  store_name varchar(64),
+  shipping_method_id integer,
+  order_date timestamp,
+  order_total numeric(8,2)
+)
+LANGUAGE SQL
+AS
+$$
+SELECT
+  o.order_id,
+  s.store_name,
+  o.shipping_method_id,
+  o.order_date,
+  o.order_total  
+FROM (
+  SELECT * FROM vmart_order
+  WHERE order_id = order_id_p
+) AS o
+JOIN store AS s ON o.store_id = s.store_id
+$$;
 
 --
 
