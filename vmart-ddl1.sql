@@ -101,7 +101,6 @@ JOIN (
 ON pr.product_id = si.product_id
 $$;
 
-
 --
 
 CREATE FUNCTION get_product_by_id(
@@ -167,6 +166,8 @@ SELECT
 FROM vmart_user
 WHERE user_id = customer_id;
 $$;
+
+--
 
 CREATE PROCEDURE update_profile(
   customer_id integer,
@@ -275,7 +276,6 @@ INSERT INTO payment_method VALUES (
   is_default);
 $$;
 
-
 -- Cart function
 
 CREATE FUNCTION get_cart(
@@ -335,7 +335,6 @@ WHEN NOT MATCHED THEN
   INSERT (cart_id, product_id, quantity)
   VALUES (pr.cart_id, pr.product_id, pr.quantity);
 $$;
-
 
 -- Order function
 
