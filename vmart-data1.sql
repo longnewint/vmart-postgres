@@ -25,7 +25,7 @@ INSERT INTO vmart_user VALUES
 (12321, 'other_dev@mail.com');
 
 INSERT INTO shopping_cart VALUES
-(1234567, 12345, 101);
+(1234567, 12345, 101),
 (1234321, 12321, 101);
 
 CALL update_profile(12345, 'Long Nguyen', '6134133792');
@@ -34,8 +34,8 @@ CALL add_address(11111, TRUE, 'pick up', 'at the store', 'Ottawa', 'Ontario', 'K
 CALL add_address(12345, TRUE, '1227', 'Woodroffe Ave', 'Ottawa', 'Ontario', 'K2C2T2');
 CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'Ottawa', 'Ontario', 'K2C2T2');
 
-CALL add_payment(12345, 1, '1234567812345678', '1', '27', '123', TRUE);
-CALL add_payment(12345, 2, '1234123412341234', '1', '27', '123', FALSE);
+CALL add_payment(12345, 1, '1234567812345678', '01', '27', '123', TRUE);
+CALL add_payment(12345, 2, '1234123412341234', '01', '27', '123', FALSE);
 
 CALL add_to_cart(1234567, 1002, 1);
 CALL add_to_cart(1234567, 1005, 1);
