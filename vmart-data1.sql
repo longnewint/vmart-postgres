@@ -30,9 +30,9 @@ INSERT INTO shopping_cart VALUES
 
 CALL update_profile(12345, 'Long Nguyen', '6134133792');
 
-CALL add_address(11111, TRUE, 'pick up', 'at the store', 'Ottawa', 'Ontario', 'K2C2T2');
-CALL add_address(12345, TRUE, '1227', 'Woodroffe Ave', 'Ottawa', 'Ontario', 'K2C2T2');
-CALL add_address(12345, FALSE, '1221', 'Woodroffe Ave', 'Ottawa', 'Ontario', 'K2C2T2');
+CALL add_address(11111, TRUE, 'none', 'pick up', 'at the store', 'none', 'Ottawa', 'Ontario', 'K2C2T2');
+CALL add_address(12345, TRUE, 'none', '1227', 'Woodroffe Ave', 'none', 'Ottawa', 'Ontario', 'K2C2T2');
+CALL add_address(12345, FALSE, 'none', '1221', 'Woodroffe Ave', 'none', 'Ottawa', 'Ontario', 'K2C2T2');
 
 CALL add_payment(12345, 1, '1234567812345678', '01', '27', '123', TRUE);
 CALL add_payment(12345, 2, '1234123412341234', '01', '27', '123', FALSE);
