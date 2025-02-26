@@ -132,7 +132,7 @@ CREATE TABLE user_address (
   is_default boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY(user_id, address_id),
   FOREIGN KEY(user_id) REFERENCES vmart_user,
-  FOREIGN KEY(address_id) REFERENCES address
+  FOREIGN KEY(address_id) REFERENCES address ON DELETE CASCADE
 );
 
 CREATE TABLE shipping_method (
