@@ -257,7 +257,7 @@ $$;
 CREATE PROCEDURE add_payment(
   customer_id integer,
   payment_type_id integer,
-  card_number varchar(32),
+  card_number varchar(16),
   exp_month varchar(2),
   exp_year varchar(4),
   cvv varchar(3),

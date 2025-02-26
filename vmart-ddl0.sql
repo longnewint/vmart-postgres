@@ -149,7 +149,7 @@ CREATE TABLE payment_method (
   payment_method_id integer NOT NULL PRIMARY KEY,
   user_id integer NOT NULL,
   payment_type_id integer NOT NULL,
-  card_number varchar(32) NOT NULL,
+  card_number varchar(16) NOT NULL,
   exp_month varchar(2) NOT NULL,
   exp_year varchar(4) NOT NULL,
   cvv varchar(3) NOT NULL,
