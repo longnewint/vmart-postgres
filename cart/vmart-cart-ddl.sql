@@ -1,0 +1,59 @@
+-- Cart function
+
+CREATE FUNCTION get_cart(
+  customer_cart_id integer,
+  store_id integer)
+  RETURNS TABLE(
+    product_id integer,
+    product_name varchar(64),
+    list_price numeric(6,2),
+    thumbnail_url text,
+    quantity integer
+  )
+  LANGUAGE SQL
+AS
+$$
+SELECT
+  pr.product_id,
+  pr.product_name,
+  pr.list_price,
+  pr.thumbnail_url,
+  cart.quantity
+FROM (
+  SELECT
+    product_id,
+    quantity
+  FROM shopping_cart_item
+  WHERE cart_id = customer_cart_id
+) AS cart
+JOIN product AS pr
+ON cart.product_id = pr.product_id;
+$$;
+
+--
+
+CREATE PROCEDURE add_to_cart(
+  customer_cart_id integer,
+  added_product_id integer,
+  product_quantity integer)
+  LANGUAGE SQL
+AS
+$$
+MERGE INTO shopping_cart_item sci
+USING(
+  VALUES(
+    customer_cart_id,
+    added_product_id,
+    product_quantity)
+) AS pr (cart_id, product_id, quantity)
+ON sci.cart_id = pr.cart_id
+AND sci.product_id = pr.product_id
+WHEN MATCHED AND pr.quantity != 0 THEN
+  UPDATE SET
+    quantity = pr.quantity
+WHEN MATCHED AND pr.quantity = 0 THEN
+  DELETE
+WHEN NOT MATCHED THEN
+  INSERT (cart_id, product_id, quantity)
+  VALUES (pr.cart_id, pr.product_id, pr.quantity);
+$$;

@@ -18,7 +18,6 @@ SET default_with_oids = false;
 
 
 -- Profile function
-
 CREATE FUNCTION get_profile(customer_id integer)
   RETURNS TABLE(
     email varchar(64),
@@ -37,7 +36,6 @@ WHERE user_id = customer_id;
 $$;
 
 --
-
 CREATE PROCEDURE update_profile(
   customer_id integer,
   c_name varchar(64),
@@ -53,7 +51,6 @@ WHERE user_id = customer_id;
 $$;
 
 -- Address function
-
 CREATE FUNCTION get_address(customer_id integer)
   RETURNS TABLE(
     address_id integer,
@@ -83,7 +80,6 @@ ON ua.address_id = a.address_id;
 $$;
 
 --
-
 CREATE PROCEDURE add_address(
   customer_id integer,
   is_default boolean,
@@ -102,7 +98,6 @@ INSERT INTO user_address VALUES ($1, currval('address_seq'), $2);
 $$;
 
 -- Payment function
-
 CREATE FUNCTION get_payment(customer_id integer)
   RETURNS TABLE(
     payment_method_id integer,
@@ -122,7 +117,6 @@ WHERE user_id = customer_id;
 $$;
 
 --
-
 CREATE PROCEDURE add_payment(
   customer_id integer,
   payment_type_id integer,
@@ -145,68 +139,8 @@ INSERT INTO payment_method VALUES (
   is_default);
 $$;
 
--- Cart function
-
-CREATE FUNCTION get_cart(
-  customer_cart_id integer,
-  store_id integer)
-  RETURNS TABLE(
-    product_id integer,
-    product_name varchar(64),
-    list_price numeric(6,2),
-    thumbnail_url text,
-    quantity integer
-  )
-  LANGUAGE SQL
-AS
-$$
-SELECT
-  pr.product_id,
-  pr.product_name,
-  pr.list_price,
-  pr.thumbnail_url,
-  cart.quantity
-FROM (
-  SELECT
-    product_id,
-    quantity
-  FROM shopping_cart_item
-  WHERE cart_id = customer_cart_id
-) AS cart
-JOIN product AS pr
-ON cart.product_id = pr.product_id;
-$$;
-
---
-
-CREATE PROCEDURE add_to_cart(
-  customer_cart_id integer,
-  added_product_id integer,
-  product_quantity integer)
-  LANGUAGE SQL
-AS
-$$
-MERGE INTO shopping_cart_item sci
-USING(
-  VALUES(
-    customer_cart_id,
-    added_product_id,
-    product_quantity)
-) AS pr (cart_id, product_id, quantity)
-ON sci.cart_id = pr.cart_id
-AND sci.product_id = pr.product_id
-WHEN MATCHED AND pr.quantity != 0 THEN
-  UPDATE SET
-    quantity = pr.quantity
-WHEN MATCHED AND pr.quantity = 0 THEN
-  DELETE
-WHEN NOT MATCHED THEN
-  INSERT (cart_id, product_id, quantity)
-  VALUES (pr.cart_id, pr.product_id, pr.quantity);
-$$;
 
 -- Order function
-
 CREATE FUNCTION calculate_total(
   customer_cart_id integer,
   chosen_store_id integer)
@@ -227,7 +161,6 @@ JOIN product p ON sci.product_id = p.product_id
 $$;
 
 --
-
 CREATE FUNCTION get_current_order(customer_id integer)
 RETURNS TABLE(
   order_id integer,
@@ -263,7 +196,6 @@ JOIN address AS a ON o.address_id = a.address_id;
 $$;
 
 --
-
 CREATE FUNCTION get_order_by_id(order_id_p integer)
 RETURNS TABLE(
   order_id integer,
@@ -289,7 +221,6 @@ JOIN store AS s ON o.store_id = s.store_id
 $$;
 
 --
-
 CREATE PROCEDURE create_order(
   customer_id integer,
   store_id integer,
