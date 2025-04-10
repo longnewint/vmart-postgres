@@ -1,6 +1,4 @@
 --
--- vmart helper functions
---
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -13,12 +11,8 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
---
---
-
 
 -- Category function
-
 CREATE FUNCTION get_category(parent_id integer)
   RETURNS TABLE(
     category_id integer,
