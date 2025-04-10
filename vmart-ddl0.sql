@@ -1,6 +1,4 @@
---
 -- vmart database init
---
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -12,10 +10,9 @@ SET client_min_messages = warning;
 SET default_tablespace = '';
 SET default_with_oids = false;
 
----
---- drop tables
----
+--
 
+-- drop tables
 DROP TABLE IF EXISTS vmart_user CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS user_address CASCADE;
