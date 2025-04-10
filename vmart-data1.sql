@@ -1,6 +1,4 @@
---
 -- vmart database dump 1
---
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -15,8 +13,6 @@ SET default_with_oids = false;
 SET default_with_oids = false;
 SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
---
---
 --
 
 INSERT INTO vmart_user VALUES
