@@ -1,6 +1,5 @@
 --
--- vmart product view and functions
---
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -10,8 +9,7 @@ SET client_min_messages = warning;
 
 SET default_tablespace = '';
 SET default_with_oids = false;
---
---
+
 --
 
 -- Create product view
