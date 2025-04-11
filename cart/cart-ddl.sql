@@ -1,5 +1,4 @@
 --
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -9,7 +8,6 @@ SET client_min_messages = warning;
 
 SET default_tablespace = '';
 SET default_with_oids = false;
-
 --
 
 -- Cart function
@@ -44,7 +42,6 @@ ON cart.product_id = pr.product_id;
 $$;
 
 --
-
 CREATE PROCEDURE add_to_cart(
   customer_cart_id integer,
   added_product_id integer,
