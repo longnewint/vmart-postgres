@@ -23,7 +23,15 @@ ON si.product_id = pr.product_id
 
 -- Product function
 CREATE FUNCTION get_product_by_category(parent_id integer)
-  RETURNS SETOF product
+  RETURNS TABLE(
+    product_id integer,
+    brand varchar(64),
+    product_name varchar(64),
+    list_price numeric(6,2),
+    discount_price numeric(6,2),
+    package_size integer,
+    thumbnail_url varchar(256)
+  )
   LANGUAGE SQL
 AS
 $$
