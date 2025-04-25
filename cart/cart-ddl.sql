@@ -16,20 +16,26 @@ CREATE FUNCTION get_cart(
   store_id integer)
   RETURNS TABLE(
     product_id integer,
+    brand varchar(64),
     product_name varchar(64),
     list_price numeric(6,2),
-    thumbnail_url text,
+    discount_price numeric(6,2),
+    package_size integer,
+    thumbnail_url varchar(256),
     quantity integer
   )
   LANGUAGE SQL
 AS
 $$
 SELECT
-  pr.product_id,
-  pr.product_name,
-  pr.list_price,
-  pr.thumbnail_url,
-  cart.quantity
+  cart.product_id,
+	brand,
+	product_name,
+	discount_price,
+	list_price,
+	package_size,
+	thumbnail_url,
+  quantity
 FROM (
   SELECT
     product_id,
@@ -37,7 +43,7 @@ FROM (
   FROM shopping_cart_item
   WHERE cart_id = customer_cart_id
 ) AS cart
-JOIN product AS pr
+JOIN product_view AS pr
 ON cart.product_id = pr.product_id;
 $$;
 
