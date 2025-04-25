@@ -36,8 +36,14 @@ CREATE FUNCTION get_product_by_category(parent_id integer)
 AS
 $$
 SELECT
-  *
-FROM product
+	product_id,
+	brand,
+	product_name,
+	list_price,
+	discount_price,
+	package_size,
+	thumbnail_url 
+FROM product_view
 WHERE category_id IN (
   SELECT
     category_id
