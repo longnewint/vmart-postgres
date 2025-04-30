@@ -56,7 +56,7 @@ CREATE TABLE product (
   brand varchar(64) DEFAULT 'none',
   product_name varchar(64) NOT NULL,
   list_price numeric(6,2) NOT NULL,
-  package_size int NOT NULL DEFAULT 0,
+  package_size varchar(16) NOT NULL DEFAULT 'none',
   package_measurement int NOT NULL DEFAULT 0,
   package_measurement_unit varchar(8) DEFAULT 'none',
   unit_price varchar(16) DEFAULT 'none',
