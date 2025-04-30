@@ -30,6 +30,8 @@ CREATE FUNCTION get_product_by_category(parent_id integer)
     list_price numeric(6,2),
     discount_price numeric(6,2),
     package_size integer,
+		unit_price varchar(16),
+		unit_price_calc integer,
     thumbnail_url varchar(256)
   )
   LANGUAGE SQL
@@ -41,9 +43,9 @@ SELECT
 	product_name,
 	list_price,
 	discount_price,
+	package_size,
 	unit_price,
 	unit_price_calc,
-	package_size,
 	thumbnail_url 
 FROM product_view
 WHERE category_id IN (
@@ -64,7 +66,8 @@ CREATE FUNCTION get_product_by_id(
     product_name varchar(64),
     list_price numeric(6,2),
     discount_price numeric(6,2),
-    package_size int,
+    package_size integer,
+    unit_price varchar(16),
     url varchar(256),
     sku varchar(12),
     ingredients text,
@@ -79,6 +82,7 @@ SELECT
   pr.list_price,
   si.discount_price,
   pr.package_size,
+  pr.unit_price,
   pr.url,
   pr.sku,
   pr.ingredients,
