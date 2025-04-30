@@ -60,7 +60,7 @@ CREATE TABLE product (
   package_measurement int NOT NULL DEFAULT 0,
   package_measurement_unit varchar(8) NOT NULL DEFAULT 'none',
   unit_price varchar(16) DEFAULT 'none',
-  unit_price_calc int DEFAULT 0,
+  unit_price_calc integer DEFAULT 0,
   thumbnail_url varchar(256) DEFAULT 'none',
   url varchar(256) DEFAULT 'none',
   description text DEFAULT 'none',
