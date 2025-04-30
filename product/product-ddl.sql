@@ -41,6 +41,8 @@ SELECT
 	product_name,
 	list_price,
 	discount_price,
+	unit_price,
+	unit_price_calc,
 	package_size,
 	thumbnail_url 
 FROM product_view
