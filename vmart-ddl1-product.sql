@@ -19,7 +19,7 @@ SELECT
 	pr.*
 FROM store_item AS si
 JOIN product AS pr
-ON si.product_id = pr.product_id
+ON si.product_id = pr.product_id;
 
 -- Category function
 CREATE OR REPLACE FUNCTION get_category(parent_id integer)
