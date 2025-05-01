@@ -14,8 +14,8 @@ SET default_with_oids = false;
 CREATE FUNCTION calculate_total(
   customer_cart_id integer,
   chosen_store_id integer)
-  RETURNS numeric(6,2)
-  LANGUAGE SQL
+RETURNS numeric(6,2)
+LANGUAGE SQL
 AS
 $$
 SELECT
