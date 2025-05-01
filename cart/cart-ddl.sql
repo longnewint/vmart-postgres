@@ -20,7 +20,7 @@ CREATE FUNCTION get_cart(
     product_name varchar(64),
     list_price numeric(6,2),
     discount_price numeric(6,2),
-    package_size integer,
+    package_size varchar(16),
     unit_price varchar(16),
     thumbnail_url varchar(256),
     quantity integer
