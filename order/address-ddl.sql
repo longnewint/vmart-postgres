@@ -12,17 +12,17 @@ SET default_with_oids = false;
 
 --
 CREATE FUNCTION get_address(customer_id integer)
-  RETURNS TABLE(
-    address_id integer,
-    unit_number varchar(16),
-    street_number varchar(16),
-    address_line_1 varchar(64),
-    address_line_2 varchar(64),
-    postal_code varchar(6),
-    city varchar(32),
-    province varchar(32),
-    is_default boolean)
-  LANGUAGE SQL
+RETURNS TABLE(
+  address_id integer,
+  unit_number varchar(16),
+  street_number varchar(16),
+  address_line_1 varchar(64),
+  address_line_2 varchar(64),
+  postal_code varchar(6),
+  city varchar(32),
+  province varchar(32),
+  is_default boolean)
+LANGUAGE SQL
 AS
 $$
 SELECT
@@ -50,7 +50,7 @@ CREATE PROCEDURE add_address(
   city varchar(32),
   province varchar(32),
   postal_code varchar(6))
-  LANGUAGE SQL
+LANGUAGE SQL
 AS
 $$
 INSERT INTO address VALUES(nextval('address_seq'), $3, $4, $5, $6, $7, $8, $9);
