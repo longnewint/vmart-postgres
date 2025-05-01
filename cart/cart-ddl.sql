@@ -21,6 +21,7 @@ CREATE FUNCTION get_cart(
     list_price numeric(6,2),
     discount_price numeric(6,2),
     package_size integer,
+    unit_price varchar(16),
     thumbnail_url varchar(256),
     quantity integer
   )
@@ -34,6 +35,7 @@ SELECT
 	discount_price,
 	list_price,
 	package_size,
+  unit_price,
 	thumbnail_url,
   quantity
 FROM (
