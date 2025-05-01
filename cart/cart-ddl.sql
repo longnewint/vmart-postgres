@@ -14,18 +14,18 @@ SET default_with_oids = false;
 CREATE FUNCTION get_cart(
   customer_cart_id integer,
   store_idtt integer)
-  RETURNS TABLE(
-    product_id integer,
-    brand varchar(64),
-    product_name varchar(64),
-    list_price numeric(6,2),
-    discount_price numeric(6,2),
-    package_size varchar(16),
-    unit_price varchar(16),
-    thumbnail_url varchar(256),
-    quantity integer
-  )
-  LANGUAGE SQL
+RETURNS TABLE(
+  product_id integer,
+  brand varchar(64),
+  product_name varchar(64),
+  list_price numeric(6,2),
+  discount_price numeric(6,2),
+  package_size varchar(16),
+  unit_price varchar(16),
+  thumbnail_url varchar(256),
+  quantity integer
+)
+LANGUAGE SQL
 AS
 $$
 SELECT
@@ -55,7 +55,7 @@ CREATE PROCEDURE add_to_cart(
   customer_cart_id integer,
   added_product_id integer,
   product_quantity integer)
-  LANGUAGE SQL
+LANGUAGE SQL
 AS
 $$
 MERGE INTO shopping_cart_item sci
