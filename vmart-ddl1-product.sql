@@ -50,3 +50,77 @@ SELECT
 FROM category_cte
 WHERE is_leaf = TRUE;
 $$;
+
+-- Product function
+CREATE FUNCTION get_product_by_category(
+	parent_category_id integer,
+	store_idtt integer)
+RETURNS TABLE(
+	product_id integer,
+	brand varchar(64),
+	product_name varchar(64),
+	list_price numeric(6,2),
+	discount_price numeric(6,2),
+	package_size varchar(16),
+	unit_price varchar(16),
+	unit_price_calc integer,
+	thumbnail_url varchar(256)
+)
+LANGUAGE SQL
+AS
+$$
+SELECT
+	product_id,
+	brand,
+	product_name,
+	list_price,
+	discount_price,
+	package_size,
+	unit_price,
+	unit_price_calc,
+	thumbnail_url
+FROM product_view
+WHERE category_id IN (
+  SELECT
+    category_id
+  FROM
+    get_category(parent_category_id)
+)
+AND store_id = store_idtt;
+$$;
+
+--
+CREATE FUNCTION get_product_by_id(
+  product_idtt integer,
+  store_idtt integer)
+RETURNS TABLE(
+  product_id integer,
+  brand varchar(64),
+  product_name varchar(64),
+  list_price numeric(6,2),
+  discount_price numeric(6,2),
+  package_size varchar(16),
+  unit_price varchar(16),
+  url varchar(256),
+  sku varchar(12),
+  ingredients text,
+  nutritions text)
+LANGUAGE SQL
+AS
+$$
+SELECT
+  product_id,
+  brand,
+  product_name,
+  list_price,
+  discount_price,
+  package_size,
+  unit_price,
+  url,
+  sku,
+  ingredients,
+  nutritions
+FROM product_view
+WHERE store_id = store_idtt
+AND product_id = product_idtt;
+$$;
