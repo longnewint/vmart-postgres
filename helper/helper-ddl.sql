@@ -12,10 +12,10 @@ SET default_with_oids = false;
 
 -- Category function
 CREATE FUNCTION get_category(parent_id integer)
-  RETURNS TABLE(
-    category_id integer,
-    category_name varchar(64))
-  LANGUAGE SQL
+RETURNS TABLE(
+  category_id integer,
+  category_name varchar(64))
+LANGUAGE SQL
 AS
 $$
 WITH RECURSIVE category_cte AS
