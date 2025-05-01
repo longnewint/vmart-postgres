@@ -22,7 +22,7 @@ JOIN product AS pr
 ON si.product_id = pr.product_id
 
 -- Category function
-CREATE FUNCTION get_category(parent_id integer)
+CREATE OR REPLACE FUNCTION get_category(parent_id integer)
 RETURNS TABLE(
   category_id integer,
   category_name varchar(64))
@@ -52,7 +52,7 @@ WHERE is_leaf = TRUE;
 $$;
 
 -- Product function
-CREATE FUNCTION get_product_by_category(
+CREATE OR REPLACE FUNCTION get_product_by_category(
 	parent_category_id integer,
 	store_idtt integer)
 RETURNS TABLE(
@@ -90,7 +90,7 @@ AND store_id = store_idtt;
 $$;
 
 --
-CREATE FUNCTION get_product_by_id(
+CREATE OR REPLACE FUNCTION get_product_by_id(
   product_idtt integer,
   store_idtt integer)
 RETURNS TABLE(
