@@ -12,12 +12,12 @@ SET default_with_oids = false;
 
 -- Payment function
 CREATE FUNCTION get_payment(customer_id integer)
-  RETURNS TABLE(
-    payment_method_id integer,
-    payment_type_id integer,
-    card_number varchar(4),
-    is_default boolean)
-  LANGUAGE SQL
+RETURNS TABLE(
+  payment_method_id integer,
+  payment_type_id integer,
+  card_number varchar(4),
+  is_default boolean)
+LANGUAGE SQL
 AS
 $$
 SELECT
@@ -38,7 +38,7 @@ CREATE PROCEDURE add_payment(
   exp_year varchar(4),
   cvv varchar(3),
   is_default boolean)
-  LANGUAGE SQL
+LANGUAGE SQL
 AS
 $$
 INSERT INTO payment_method VALUES (
