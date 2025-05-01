@@ -22,7 +22,7 @@ JOIN product AS pr
 ON si.product_id = pr.product_id
 
 -- Product function
-CREATE FUNCTION get_product_by_category(parent_id integer)
+CREATE FUNCTION get_product_by_category(parent_id integer, store_idtt integer)
   RETURNS TABLE(
     product_id integer,
     brand varchar(64),
@@ -54,12 +54,13 @@ WHERE category_id IN (
   FROM
     get_category(parent_id)
 )
+AND store_id = store_idtt;
 $$;
 
 --
 CREATE FUNCTION get_product_by_id(
-  chosen_store_id integer,
-  chosen_product_id integer)
+  product_idtt integer,
+  store_idtt integer)
   RETURNS TABLE(
     product_id integer,
     brand varchar(64),
@@ -76,30 +77,18 @@ CREATE FUNCTION get_product_by_id(
 AS
 $$
 SELECT
-  pr.product_id,
-  pr.brand,
-  pr.product_name,
-  pr.list_price,
-  si.discount_price,
-  pr.package_size,
-  pr.unit_price,
-  pr.url,
-  pr.sku,
-  pr.ingredients,
-  pr.nutritions
-FROM (
-  SELECT
-    *
-  FROM product
-  WHERE product_id = chosen_product_id
-  ) AS pr
-JOIN (
-  SELECT
-    product_id,
-    quantity,
-    discount_price
-  FROM store_item
-  WHERE store_id = chosen_store_id
-) AS si
-ON pr.product_id = si.product_id
+  product_id,
+  brand,
+  product_name,
+  list_price,
+  discount_price,
+  package_size,
+  unit_price,
+  url,
+  sku,
+  ingredients,
+  nutritions
+FROM product_view
+WHERE store_id = store_idtt
+AND product_id = product_idtt;
 $$;
