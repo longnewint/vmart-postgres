@@ -13,7 +13,7 @@ SET default_with_oids = false;
 -- Cart function
 CREATE FUNCTION get_cart(
   customer_cart_id integer,
-  store_id integer)
+  store_idtt integer)
   RETURNS TABLE(
     product_id integer,
     brand varchar(64),
@@ -46,7 +46,8 @@ FROM (
   WHERE cart_id = customer_cart_id
 ) AS cart
 JOIN product_view AS pr
-ON cart.product_id = pr.product_id;
+ON cart.product_id = pr.product_id
+AND pr.store_id = store_idtt;
 $$;
 
 --
