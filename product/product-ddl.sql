@@ -29,7 +29,7 @@ CREATE FUNCTION get_product_by_category(parent_id integer)
     product_name varchar(64),
     list_price numeric(6,2),
     discount_price numeric(6,2),
-    package_size integer,
+    package_size varchar(16),
 		unit_price varchar(16),
 		unit_price_calc integer,
     thumbnail_url varchar(256)
@@ -66,7 +66,7 @@ CREATE FUNCTION get_product_by_id(
     product_name varchar(64),
     list_price numeric(6,2),
     discount_price numeric(6,2),
-    package_size integer,
+    package_size varchar(16),
     unit_price varchar(16),
     url varchar(256),
     sku varchar(12),
