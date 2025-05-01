@@ -76,3 +76,4 @@ WHEN NOT MATCHED THEN
   INSERT (cart_id, product_id, quantity)
   VALUES (pr.cart_id, pr.product_id, pr.quantity);
 $$;
+
