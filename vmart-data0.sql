@@ -1,5 +1,4 @@
 -- vmart database dump 0
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -12,9 +11,9 @@ SET default_with_oids = false;
 
 SET default_with_oids = false;
 SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-
 --
 
+--
 INSERT INTO store VALUES
 (nextval('store_seq'), 'VMart Ottawa', '6134131234'),
 (nextval('store_seq'), 'VMart Kanata', '6134132345');

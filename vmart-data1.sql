@@ -1,5 +1,4 @@
 -- vmart database dump 1
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -12,9 +11,9 @@ SET default_with_oids = false;
 
 SET default_with_oids = false;
 SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-
 --
 
+--
 INSERT INTO vmart_user VALUES
 (11111, 'default@vmart.com'),
 (12345, 'dev@mail.com'),
