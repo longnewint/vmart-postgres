@@ -62,8 +62,6 @@ RETURNS TABLE(
 	list_price numeric(6,2),
 	discount_price numeric(6,2),
 	package_size varchar(16),
-	unit_price varchar(16),
-	unit_price_calc integer,
 	thumbnail_url varchar(256)
 )
 LANGUAGE SQL
@@ -76,8 +74,6 @@ SELECT
 	list_price,
 	discount_price,
 	package_size,
-	unit_price,
-	unit_price_calc,
 	thumbnail_url
 FROM product_view
 WHERE category_id IN (
@@ -100,7 +96,6 @@ RETURNS TABLE(
   list_price numeric(6,2),
   discount_price numeric(6,2),
   package_size varchar(16),
-  unit_price varchar(16),
   url varchar(256),
   sku varchar(12),
   ingredients text,
