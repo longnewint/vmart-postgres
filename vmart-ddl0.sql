@@ -187,3 +187,18 @@ CREATE SEQUENCE vmart_order_seq
   INCREMENT 1
   START 1
   OWNED BY vmart_order.order_id;
+
+CREATE TABLE order_item (
+	order_item_id integer NOT NULL PRIMARY KEY,
+	product_id integer NOT NULL,
+	brand varchar(64),
+	product_name varchar(64),
+  list_price numeric(6,2) NOT NULL,
+  order_price numeric(6,2) NOT NULL,
+  package_size varchar(16),
+	thumbnail_url varchar(256)
+);
+CREATE SEQUENCE payment_method_seq
+  INCREMENT 1
+  START 1000000
+  OWNED BY order_item.order_item_id;
