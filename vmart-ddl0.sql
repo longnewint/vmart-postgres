@@ -198,7 +198,7 @@ CREATE TABLE order_item (
   package_size varchar(16),
 	thumbnail_url varchar(256)
 );
-CREATE SEQUENCE payment_method_seq
+CREATE SEQUENCE order_item_seq
   INCREMENT 1
   START 1000000
   OWNED BY order_item.order_item_id;
